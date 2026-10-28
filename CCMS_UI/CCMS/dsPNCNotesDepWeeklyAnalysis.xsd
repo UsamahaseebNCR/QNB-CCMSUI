@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPNCNotesDepWeeklyAnalysis" targetNamespace="http://tempuri.org/dsPNCNotesDepWeeklyAnalysis.xsd" xmlns:mstns="http://tempuri.org/dsPNCNotesDepWeeklyAnalysis.xsd" xmlns="http://tempuri.org/dsPNCNotesDepWeeklyAnalysis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPNCNotesDepWeeklyAnalysis" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPNCNotesDepWeeklyAnalysis" msprop:Generator_UserDSName="dsPNCNotesDepWeeklyAnalysis">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="month_year" msprop:Generator_ColumnVarNameInTable="columnmonth_year" msprop:Generator_ColumnPropNameInRow="month_year" msprop:Generator_ColumnPropNameInTable="month_yearColumn" msprop:Generator_UserColumnName="month_year" type="xs:string" minOccurs="0" />
+              <xs:element name="acc_perc_week1" msprop:Generator_ColumnVarNameInTable="columnacc_perc_week1" msprop:Generator_ColumnPropNameInRow="acc_perc_week1" msprop:Generator_ColumnPropNameInTable="acc_perc_week1Column" msprop:Generator_UserColumnName="acc_perc_week1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acc_perc_week2" msprop:Generator_ColumnVarNameInTable="columnacc_perc_week2" msprop:Generator_ColumnPropNameInRow="acc_perc_week2" msprop:Generator_ColumnPropNameInTable="acc_perc_week2Column" msprop:Generator_UserColumnName="acc_perc_week2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acc_perc_week3" msprop:Generator_ColumnVarNameInTable="columnacc_perc_week3" msprop:Generator_ColumnPropNameInRow="acc_perc_week3" msprop:Generator_ColumnPropNameInTable="acc_perc_week3Column" msprop:Generator_UserColumnName="acc_perc_week3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acc_perc_week4" msprop:Generator_ColumnVarNameInTable="columnacc_perc_week4" msprop:Generator_ColumnPropNameInRow="acc_perc_week4" msprop:Generator_ColumnPropNameInTable="acc_perc_week4Column" msprop:Generator_UserColumnName="acc_perc_week4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rej_perc_week1" msprop:Generator_ColumnVarNameInTable="columnrej_perc_week1" msprop:Generator_ColumnPropNameInRow="rej_perc_week1" msprop:Generator_ColumnPropNameInTable="rej_perc_week1Column" msprop:Generator_UserColumnName="rej_perc_week1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rej_perc_week2" msprop:Generator_ColumnVarNameInTable="columnrej_perc_week2" msprop:Generator_ColumnPropNameInRow="rej_perc_week2" msprop:Generator_ColumnPropNameInTable="rej_perc_week2Column" msprop:Generator_UserColumnName="rej_perc_week2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rej_perc_week3" msprop:Generator_ColumnVarNameInTable="columnrej_perc_week3" msprop:Generator_ColumnPropNameInRow="rej_perc_week3" msprop:Generator_ColumnPropNameInTable="rej_perc_week3Column" msprop:Generator_UserColumnName="rej_perc_week3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rej_perc_week4" msprop:Generator_ColumnVarNameInTable="columnrej_perc_week4" msprop:Generator_ColumnPropNameInRow="rej_perc_week4" msprop:Generator_ColumnPropNameInTable="rej_perc_week4Column" msprop:Generator_UserColumnName="rej_perc_week4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_accepted_week1" msprop:Generator_ColumnVarNameInTable="columnitems_accepted_week1" msprop:Generator_ColumnPropNameInRow="items_accepted_week1" msprop:Generator_ColumnPropNameInTable="items_accepted_week1Column" msprop:Generator_UserColumnName="items_accepted_week1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_rejected_week1" msprop:Generator_ColumnVarNameInTable="columnitems_rejected_week1" msprop:Generator_ColumnPropNameInRow="items_rejected_week1" msprop:Generator_ColumnPropNameInTable="items_rejected_week1Column" msprop:Generator_UserColumnName="items_rejected_week1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_processed_week1" msprop:Generator_ColumnVarNameInTable="columnitems_processed_week1" msprop:Generator_ColumnPropNameInRow="items_processed_week1" msprop:Generator_ColumnPropNameInTable="items_processed_week1Column" msprop:Generator_UserColumnName="items_processed_week1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_accepted_week2" msprop:Generator_ColumnVarNameInTable="columnitems_accepted_week2" msprop:Generator_ColumnPropNameInRow="items_accepted_week2" msprop:Generator_ColumnPropNameInTable="items_accepted_week2Column" msprop:Generator_UserColumnName="items_accepted_week2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_rejected_week2" msprop:Generator_ColumnVarNameInTable="columnitems_rejected_week2" msprop:Generator_ColumnPropNameInRow="items_rejected_week2" msprop:Generator_ColumnPropNameInTable="items_rejected_week2Column" msprop:Generator_UserColumnName="items_rejected_week2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_processed_week2" msprop:Generator_ColumnVarNameInTable="columnitems_processed_week2" msprop:Generator_ColumnPropNameInRow="items_processed_week2" msprop:Generator_ColumnPropNameInTable="items_processed_week2Column" msprop:Generator_UserColumnName="items_processed_week2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_accepted_week3" msprop:Generator_ColumnVarNameInTable="columnitems_accepted_week3" msprop:Generator_ColumnPropNameInRow="items_accepted_week3" msprop:Generator_ColumnPropNameInTable="items_accepted_week3Column" msprop:Generator_UserColumnName="items_accepted_week3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_rejected_week3" msprop:Generator_ColumnVarNameInTable="columnitems_rejected_week3" msprop:Generator_ColumnPropNameInRow="items_rejected_week3" msprop:Generator_ColumnPropNameInTable="items_rejected_week3Column" msprop:Generator_UserColumnName="items_rejected_week3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_processed_week3" msprop:Generator_ColumnVarNameInTable="columnitems_processed_week3" msprop:Generator_ColumnPropNameInRow="items_processed_week3" msprop:Generator_ColumnPropNameInTable="items_processed_week3Column" msprop:Generator_UserColumnName="items_processed_week3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_accepted_week4" msprop:Generator_ColumnVarNameInTable="columnitems_accepted_week4" msprop:Generator_ColumnPropNameInRow="items_accepted_week4" msprop:Generator_ColumnPropNameInTable="items_accepted_week4Column" msprop:Generator_UserColumnName="items_accepted_week4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_rejected_week4" msprop:Generator_ColumnVarNameInTable="columnitems_rejected_week4" msprop:Generator_ColumnPropNameInRow="items_rejected_week4" msprop:Generator_ColumnPropNameInTable="items_rejected_week4Column" msprop:Generator_UserColumnName="items_rejected_week4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="items_processed_week4" msprop:Generator_ColumnVarNameInTable="columnitems_processed_week4" msprop:Generator_ColumnPropNameInRow="items_processed_week4" msprop:Generator_ColumnPropNameInTable="items_processed_week4Column" msprop:Generator_UserColumnName="items_processed_week4" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

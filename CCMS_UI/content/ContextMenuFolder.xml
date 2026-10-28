@@ -1,0 +1,4 @@
+﻿<items>
+  <item Text="Get File Size" Look-LeftIconUrl="filesize.jpg" Id="getFiles"     />
+  <item Text="Download" Look-LeftIconUrl="download.jpg" Id="download"/> 
+</items>

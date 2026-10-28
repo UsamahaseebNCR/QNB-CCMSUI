@@ -1,0 +1,189 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Avanza.CCMS.DAL;
+using System.Text.RegularExpressions;
+using System.Text;
+using System.IO;
+using System.Data.OleDb;
+using System.Data;
+
+namespace CCMSUI.CCMS
+{
+    public partial class ViewTransactionChunk : System.Web.UI.Page
+    {
+        static Regex formattingChars = new Regex(@"([[]00p)|([[]05p)|([[]020t)|([[]0r[(]1[)]2[[]000p[[]040qe1w3h162)|([(]\D)|([(]\d)|([(]C)|([[]040)|([[]000p)|(/)|(q[(]I)|(q[(]1)|([(]7)|([(]>)|()|([(]>)|([(]C)|([(]1)|([(]D)|(\+)");
+        Avanza.CCMS.DAL.EjParsedTransactions trxn = null;
+        Avanza.CCMS.DAL.EjParsedBnaTransaction ejParsedBnaTrxn = null;
+        Avanza.CCMS.DAL.EjParsedCpmTransaction ejParsedCpmTrxn = null;
+        Avanza.CCMS.DAL.EjCapturedCard ejCapturedCard = null;
+
+        private void ViewChunk()
+        {
+            int startIndex = 0;
+            int endIndex = 0;
+            DateTime trxnDatetime = DateTime.MinValue;
+            string pan = null;
+            string tsn = null;
+            decimal amount = 0;
+            string status = "";
+            string ej = null;
+            int taskID = 0;
+            Avanza.CCMS.DAL.CapturedTransactions capturedTrxn = Avanza.CCMS.DAL.CapturedTransactions.LoadCapturedTransactionsByPk(int.Parse(Request.QueryString["id"]));
+            if (capturedTrxn.TransactionId > 0)
+            {
+                trxn = EjParsedTransactions.LoadEjParsedTransactionsByPk(capturedTrxn.TransactionId);
+                taskID = trxn.TaskId.Value;
+                pan = trxn.Pan;
+                tsn = trxn.Tsn;
+                trxnDatetime = trxn.TrxnDatetime.Value;
+                amount = trxn.Amount.Value;
+                startIndex = trxn.StartIndex.Value;
+                endIndex = trxn.EndIndex.Value;
+                status = trxn.Status == 0 ? "Successful" : trxn.Status == 1 ? "Failed" : trxn.Status == 2 ? "Suspicious" : "";
+            }
+
+            else if (capturedTrxn.EjParsedBnaTransactionsId.HasValue)
+            {
+                ejParsedBnaTrxn = EjParsedBnaTransaction.LoadEjParsedBnaTransactionByPk(capturedTrxn.EjParsedBnaTransactionsId.Value);
+                taskID = ejParsedBnaTrxn.TaskId;
+                pan = ejParsedBnaTrxn.Pan;
+                tsn = ejParsedBnaTrxn.Seq;
+                trxnDatetime = ejParsedBnaTrxn.TrxnDatetime.Value;
+                amount = ejParsedBnaTrxn.AmountAuthorized.Value;
+                startIndex = ejParsedBnaTrxn.StartIndex;
+                endIndex = ejParsedBnaTrxn.EndIndex;
+                status = ejParsedBnaTrxn.Status;
+            }
+            else if (capturedTrxn.EjParsedCpmTransactionsId.HasValue)
+            {
+                ejParsedCpmTrxn = EjParsedCpmTransaction.LoadEjParsedCpmTransactionByPk(capturedTrxn.EjParsedCpmTransactionsId.Value);
+                taskID = ejParsedCpmTrxn.TaskId;
+                pan = ejParsedCpmTrxn.Pan;
+                tsn = ejParsedCpmTrxn.Seq;
+                trxnDatetime = ejParsedCpmTrxn.TrxnDatetime.Value;
+                amount = ejParsedCpmTrxn.DepositAmount.Value;
+                startIndex = ejParsedCpmTrxn.StartIndex;
+                endIndex = ejParsedCpmTrxn.EndIndex;
+
+                
+            }
+            else if (capturedTrxn.EjCapturedCardId.HasValue)
+            {
+                ejCapturedCard = EjCapturedCard.LoadEjCapturedCardByPk(capturedTrxn.EjCapturedCardId.Value);
+                taskID = ejCapturedCard.TaskId;
+                pan = ejCapturedCard.PAN;
+                tsn = ejCapturedCard.TSN.ToString();
+                trxnDatetime = ejCapturedCard.CaptureTime;
+                startIndex = ejCapturedCard.StartIndex.Value;
+                endIndex = ejCapturedCard.EndIndex.Value;
+                //status = ejParsedCpmTrxn.Status;
+            }
+
+            // Avanza.CCMS.DAL.EjParsedTransactions trxn = Avanza.CCMS.DAL.EjParsedTransactions.LoadEjParsedTransactionsByPk(int.Parse(Request.QueryString["id"]));
+            if (taskID > 0)
+            {
+                Avanza.CCMS.DAL.Task task = Avanza.CCMS.DAL.Task.LoadTaskByPk(taskID);
+                int uncompressedLength;
+
+                byte[] data = CashDataViewer.GetUnCompressedBytes(task, FileType.LoadFileTypeByPk(task.FileTypeId.Value), out uncompressedLength);
+                if (task.FileTypeId == 3)
+                {
+                    AppSetting appSetting = (AppSetting)Application[ApplicationVars.AppSettings.ToString()];
+                    string filePath = appSetting.TemporaryFolder + "\\ejdata.mdb";
+                    if (File.Exists(filePath))
+                        File.Delete(filePath);
+                    File.WriteAllBytes(filePath, data);
+
+                    StringBuilder builder1 = new StringBuilder();
+                    OleDbCommand command = new OleDbCommand(@"select text from events", new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";"));
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                        builder1.Append(dr[0] + "\r\n");
+                    ej = builder1.ToString();
+
+                }
+                else
+                {
+                    ej = CashDataViewer.GetDecodedString(task, FileType.LoadFileTypeByPk(task.FileTypeId.Value), out uncompressedLength);
+                    if (task.TaskInfo != null && task.FileTypeId == 2)
+                    {
+                        int temp = task.TaskId;
+                        task.TaskId = int.Parse(task.TaskInfo);
+                        ej = CashDataViewer.GetDecodedString(task, FileType.LoadFileTypeByPk(task.FileTypeId.Value), out uncompressedLength) + ej;
+                        task.TaskId = temp;
+                        //reverting back task id;
+
+                    }
+                }
+                //ej = formattingChars.Replace(ej, "");
+                Literal_EJ.Text = ej.Substring(startIndex, endIndex - startIndex).Replace("\r\n", "<br/>");
+                Label_Datetime.Text = trxnDatetime.ToString("dd/MM/yyyy HH:mm:ss");
+                Label_PAN.Text = pan;
+                Label_TSN.Text = tsn;
+                Label_Amount.Text = amount.ToString();
+                Label_Status.Text = status;
+                chunk.Visible = true;
+                completeFile.Visible = false;
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            if (!IsPostBack)
+            {
+                ViewChunk();
+            }
+
+        }
+        protected void Button_ViewChunk_Click(object sender, EventArgs e)
+        {
+            ViewChunk();
+        }
+
+        protected void Button_ViewEJ_Click(object sender, EventArgs e)
+        {
+            string ej = null;
+            if (Request.QueryString["taskID"] != null)
+            {
+                int taskID = int.Parse(Request.QueryString["taskID"]);
+                Avanza.CCMS.DAL.Task task = Avanza.CCMS.DAL.Task.LoadTaskByPk(taskID);
+                int uncompressedLength;
+
+                byte[] data = CashDataViewer.GetUnCompressedBytes(task, FileType.LoadFileTypeByPk(task.FileTypeId.Value), out uncompressedLength);
+                if (task.FileTypeId == 3)
+                {
+                    AppSetting appSetting = (AppSetting)Application[ApplicationVars.AppSettings.ToString()];
+                    string filePath = appSetting.TemporaryFolder + "\\ejdata.mdb";
+                    if (File.Exists(filePath))
+                        File.Delete(filePath);
+                    File.WriteAllBytes(filePath, data);
+
+                    StringBuilder builder1 = new StringBuilder();
+                    OleDbCommand command = new OleDbCommand(@"select text from events", new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";"));
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                        builder1.Append(dr[0] + "\r\n");
+                    ej = builder1.ToString();
+
+                }
+                else
+                    ej = CashDataViewer.GetDecodedString(task, FileType.LoadFileTypeByPk(task.FileTypeId.Value), out uncompressedLength);
+
+                //ej = formattingChars.Replace(ej, "");
+                Literal_CompleteEJFile.Text = ej.Replace("\r\n", "<br/>");
+                chunk.Visible = false;
+                completeFile.Visible = true;
+
+            }
+        }
+    }
+}

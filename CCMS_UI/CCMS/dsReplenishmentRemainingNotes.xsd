@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReplenishmentRemainingNotes" targetNamespace="http://tempuri.org/dsReplenishmentRemainingNotes.xsd" xmlns:mstns="http://tempuri.org/dsReplenishmentRemainingNotes.xsd" xmlns="http://tempuri.org/dsReplenishmentRemainingNotes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReplenishmentRemainingNotes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReplenishmentRemainingNotes" msprop:Generator_UserDSName="dsReplenishmentRemainingNotes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="trxn_datetime" msprop:Generator_ColumnVarNameInTable="columntrxn_datetime" msprop:Generator_ColumnPropNameInRow="trxn_datetime" msprop:Generator_ColumnPropNameInTable="trxn_datetimeColumn" msprop:Generator_UserColumnName="trxn_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" msprop:Generator_UserColumnName="parent_region_id" type="xs:int" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="cash_added2" msprop:Generator_ColumnVarNameInTable="columncash_added2" msprop:Generator_ColumnPropNameInRow="cash_added2" msprop:Generator_ColumnPropNameInTable="cash_added2Column" msprop:Generator_UserColumnName="cash_added2" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added3" msprop:Generator_ColumnVarNameInTable="columncash_added3" msprop:Generator_ColumnPropNameInRow="cash_added3" msprop:Generator_ColumnPropNameInTable="cash_added3Column" msprop:Generator_UserColumnName="cash_added3" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added4" msprop:Generator_ColumnVarNameInTable="columncash_added4" msprop:Generator_ColumnPropNameInRow="cash_added4" msprop:Generator_ColumnPropNameInTable="cash_added4Column" msprop:Generator_UserColumnName="cash_added4" type="xs:int" minOccurs="0" />
+              <xs:element name="total_cashadded" msprop:Generator_ColumnVarNameInTable="columntotal_cashadded" msprop:Generator_ColumnPropNameInRow="total_cashadded" msprop:Generator_ColumnPropNameInTable="total_cashaddedColumn" msprop:Generator_UserColumnName="total_cashadded" type="xs:decimal" minOccurs="0" />
+              <xs:element name="remaining_type1" msprop:Generator_ColumnVarNameInTable="columnremaining_type1" msprop:Generator_ColumnPropNameInRow="remaining_type1" msprop:Generator_ColumnPropNameInTable="remaining_type1Column" msprop:Generator_UserColumnName="remaining_type1" type="xs:int" minOccurs="0" />
+              <xs:element name="remaining_type2" msprop:Generator_ColumnVarNameInTable="columnremaining_type2" msprop:Generator_ColumnPropNameInRow="remaining_type2" msprop:Generator_ColumnPropNameInTable="remaining_type2Column" msprop:Generator_UserColumnName="remaining_type2" type="xs:int" minOccurs="0" />
+              <xs:element name="remaining_type3" msprop:Generator_ColumnVarNameInTable="columnremaining_type3" msprop:Generator_ColumnPropNameInRow="remaining_type3" msprop:Generator_ColumnPropNameInTable="remaining_type3Column" msprop:Generator_UserColumnName="remaining_type3" type="xs:int" minOccurs="0" />
+              <xs:element name="remaining_type4" msprop:Generator_ColumnVarNameInTable="columnremaining_type4" msprop:Generator_ColumnPropNameInRow="remaining_type4" msprop:Generator_ColumnPropNameInTable="remaining_type4Column" msprop:Generator_UserColumnName="remaining_type4" type="xs:int" minOccurs="0" />
+              <xs:element name="total_remaining" msprop:Generator_ColumnVarNameInTable="columntotal_remaining" msprop:Generator_ColumnPropNameInRow="total_remaining" msprop:Generator_ColumnPropNameInTable="total_remainingColumn" msprop:Generator_UserColumnName="total_remaining" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cash_added1" msprop:Generator_ColumnVarNameInTable="columncash_added1" msprop:Generator_ColumnPropNameInRow="cash_added1" msprop:Generator_ColumnPropNameInTable="cash_added1Column" msprop:Generator_UserColumnName="cash_added1" type="xs:int" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="total_cashadded_text" msprop:Generator_ColumnVarNameInTable="columntotal_cashadded_text" msprop:Generator_ColumnPropNameInRow="total_cashadded_text" msprop:Generator_ColumnPropNameInTable="total_cashadded_textColumn" msprop:Generator_UserColumnName="total_cashadded_text" type="xs:string" minOccurs="0" />
+              <xs:element name="total_remaining_text" msprop:Generator_ColumnVarNameInTable="columntotal_remaining_text" msprop:Generator_ColumnPropNameInRow="total_remaining_text" msprop:Generator_ColumnPropNameInTable="total_remaining_textColumn" msprop:Generator_UserColumnName="total_remaining_text" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

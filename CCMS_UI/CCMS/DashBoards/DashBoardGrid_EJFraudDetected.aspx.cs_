@@ -1,0 +1,588 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using Avanza.iSuite.DAL;
+using System.Reflection;
+using System.Diagnostics;
+using System.Text;
+using Avanza.iSuite.UI;
+using Avanza.CCMS.DAL;
+using ceTe.DynamicPDF;
+using ComponentArt.Web.UI;
+
+namespace CCMSUI.CCMS.DashBoards
+{
+    public partial class DashBoardGrid_EJFraudDetected : BasePage
+    {
+       
+        bool isBNADisputedAndBNAFailed = false;
+        bool isBNAFailed = false;
+        bool isBNADisputed = false;
+        bool isCPMDisputedAndCPMFailed = false;
+        bool isCPMDisputed = false;
+        bool isCPMFailed = false;
+        bool isCaptureCard = false;
+        bool isParsedTransaction = false;
+
+     
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (this.DialogCallBack.CausedCallback || this.DialogCallBackCustomerDetail.CausedCallback)
+                return;
+
+            if (!IsPostBack)
+            {
+                if (!CheckRight((int)Permissions.ViewFraudTransactionsDashBoard, true))
+                    Response.Redirect("../../admin/aspx/AccessDenied.aspx");
+
+                ViewState["SortExpression"] = "trxn_datetime ";
+                ViewState["sortDirection"] = "desc ";
+                BindGrid(ViewState["SortExpression"].ToString() + ViewState["sortDirection"].ToString());
+
+            }
+        }
+
+        protected void GridView_Trxn_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            if (ViewState["SortExpression"].ToString().IndexOf(e.SortExpression) >= 0)
+            {
+                if (ViewState["sortDirection"].ToString() == " asc")
+                    ViewState["sortDirection"] = " desc";
+                else
+                    ViewState["sortDirection"] = " asc";
+            }
+            else
+            {
+                ViewState["SortExpression"] = e.SortExpression;
+                ViewState["sortDirection"] = " asc";
+            }
+            //if (ViewState["SortExpression"].ToString() == "creation_time")
+            //    ViewState["SortExpression"] = "f.creation_time";
+
+            ViewState["orderby"] = ViewState["SortExpression"] + " " + ViewState["sortDirection"];
+            BindGrid(ViewState["SortExpression"] + " " + ViewState["sortDirection"]);
+            //BindGridWithCache();
+        }
+        /// <summary>
+        /// queries edited by shariq on 26 aug15 transaction_rule_id inserted in select queries and cpmdisputed cpm failed queries
+        /// </summary>
+        /// <param name="orderBy"></param>
+        /// <returns>lots of changes in GetSQL method</returns>
+
+        private string GetSQL(string orderBy)
+        {
+           
+            StringBuilder builder = new StringBuilder();
+            if (Request.QueryString["c"] != null)
+            {
+                //builder.Append("");
+                Session["change"] = Request.QueryString["c"].ToString();
+            }
+            //else
+            //{
+
+//                string[] parts = Convert.ToString(Session["change"]).Split(',');
+//                if (Array.IndexOf(parts, "BNA Disputed") > -1 && Array.IndexOf(parts, "BNA Failed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+                   
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_bna_transaction.ej_parsed_bna_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, amount_authorized amount,seq tsn,pan,status,comment comment_text,'BNA FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_bna_transaction.task_id,captured_transactions_id,color,account_no " +
+//                                       " from captured_transactions inner join ej_parsed_bna_transaction " +
+//                                       " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_bna_transaction.ej_parsed_bna_transaction_id " +
+//                                       " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                                       " inner join atm outerATM " +
+//                                       " on ej_parsed_bna_transaction.atm_id = outerATM.atm_id " +
+//                                       " where  outerATM.IS_ACTIVE =1 "
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+//                else if (Array.IndexOf(parts, "BNA Disputed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_bna_transaction.ej_parsed_bna_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, amount_authorized amount,seq tsn,pan, status,comment comment_text,'BNA FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_bna_transaction.task_id,captured_transactions_id,color,account_no " +
+//                                       " from captured_transactions inner join ej_parsed_bna_transaction " +
+//                                       " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_bna_transaction.ej_parsed_bna_transaction_id " +
+//                                       " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                                       " inner join atm outerATM " +
+//                                       " on ej_parsed_bna_transaction.atm_id = outerATM.atm_id " +
+//                                       " where  outerATM.IS_ACTIVE =1  and is_disputed_transaction = 1"
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+//                else if (Array.IndexOf(parts, "BNA Failed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_bna_transaction.ej_parsed_bna_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, amount_authorized amount,seq tsn,pan, status,comment comment_text,'BNA FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_bna_transaction.task_id,captured_transactions_id,color,account_no " +
+//                                       " from captured_transactions inner join ej_parsed_bna_transaction " +
+//                                       " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_bna_transaction.ej_parsed_bna_transaction_id " +
+//                                       " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                                       " inner join atm outerATM " +
+//                                       " on ej_parsed_bna_transaction.atm_id = outerATM.atm_id " +
+//                                       " where  outerATM.IS_ACTIVE =1  and status = 'Failed'"
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+
+
+
+//                if (Array.IndexOf(parts, "CPM Disputed") > -1 && Array.IndexOf(parts, "CPM Failed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, captured_transactions.amount,seq tsn,pan,status,comment comment_text,'CPM FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_cpm_transaction.task_id,captured_transactions_id,color,account_no "
+//                                     + " from captured_transactions inner join ej_parsed_cpm_transaction "
+//                                     + " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id" 
+//                                     + " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id "
+//                                     + " inner join atm outerATM "
+//                                     + " on ej_parsed_cpm_transaction.atm_id = outerATM.atm_id" 
+//                                     + " where  outerATM.IS_ACTIVE =1 "
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+//                else if (Array.IndexOf(parts, "CPM Disputed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, captured_transactions.amount,seq tsn,pan,status,comment comment_text,'CPM FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_cpm_transaction.task_id,captured_transactions_id,color,account_no "
+//                                     + " from captured_transactions inner join ej_parsed_cpm_transaction "
+//                                     + " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id"
+//                                     + " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id "
+//                                     + " inner join atm outerATM "
+//                                     + " on ej_parsed_cpm_transaction.atm_id = outerATM.atm_id"
+//                                     + " where  outerATM.IS_ACTIVE =1 and is_disputed_transaction = 1 "
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+//                else if (Array.IndexOf(parts, "CPM Failed") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, captured_transactions.amount,seq tsn,pan,status,comment comment_text,'CPM FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_cpm_transaction.task_id,captured_transactions_id,color,account_no "
+//                                     + " from captured_transactions inner join ej_parsed_cpm_transaction "
+//                                     + " on captured_transactions.ej_parsed_bna_transactions_id = ej_parsed_cpm_transaction.ej_parsed_cpm_transaction_id"
+//                                     + " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id "
+//                                     + " inner join atm outerATM "
+//                                     + " on ej_parsed_cpm_transaction.atm_id = outerATM.atm_id"
+//                                     + " where  outerATM.IS_ACTIVE =1 and status = 'Failed' "
+//                                     + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                       " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  ");
+
+//                }
+//                if (Array.IndexOf(parts, "Captured Card") > -1)
+//                {
+//                    if (builder.Length > 0)
+//                         builder.Append(" union ");
+
+//                    builder.Append(" SELECT transaction_rule.transaction_rule_id,ej_captured_card.ej_captured_card_id,outerATM.TITLE, outerATM.ip, capture_time trxn_datetime, captured_transactions.amount,tsn,pan,' ' status,reason comment_text,'CAPTURED CARD' transaction_type_name, transaction_rule_friendly_name,ej_captured_card.task_id,captured_transactions_id,color,' ' account_no " +
+//                                       " from captured_transactions inner join ej_captured_card " +
+//                                       " on captured_transactions.ej_captured_card_id = ej_captured_card.ej_captured_card_id " +
+//                                       " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                                       " inner join atm outerATM " +
+//                                       " on ej_captured_card.atm_id = outerATM.atm_id " +
+//                                       " where  outerATM.IS_ACTIVE =1 "
+//                                      + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                                        " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null");
+//                }
+
+
+//                if (Array.IndexOf(parts, "Normal Transactions") > -1)
+//                {
+
+
+//                    if (builder.Length > 0)
+//                        builder.Append(" union ");
+
+
+//                    builder.Append(@"SELECT transaction_rule.transaction_rule_id,ej_parsed_transactions.ej_parsed_transactions_id,outerATM.TITLE, outerATM.ip, trxn_datetime, captured_transactions.amount,tsn,pan,case when status =0 then 'Successful' 
+//			when status=1 then 'Failed'
+//			when status =2 then 'Suspicious' end status,comment_text,transaction_type_name, transaction_rule_friendly_name,ej_parsed_transactions.task_id,captured_transactions_id,color,' ' account_no
+//                     from captured_transactions inner join ej_parsed_transactions 
+//                    on captured_transactions.transaction_id = ej_parsed_transactions.ej_parsed_transactions_id
+//                    inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id
+//                    inner join atm outerATM
+//                    on ej_parsed_transactions.atm_id = outerATM.atm_id 
+//                    inner join transaction_type on transaction_type.transaction_type_id =ej_parsed_transactions.transaction_type_id
+//                    inner join comment on comment.comment_id = ej_parsed_transactions.comment_id"
+//                    + " where  outerATM.IS_ACTIVE =1 "
+//                    + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                        " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null");
+
+//                }
+//            //}
+
+
+            string[] parts = Convert.ToString(Session["change"]).Split(',');
+            if (Array.IndexOf(parts, "BNA Disputed") > -1 && Array.IndexOf(parts, "BNA Failed") > -1)
+                isBNADisputedAndBNAFailed = true;
+
+            else if (Array.IndexOf(parts, "BNA Disputed") > -1)
+                isBNADisputed = true;
+
+            else if (Array.IndexOf(parts, "BNA Failed") > -1)
+                isBNAFailed = true;
+
+            if (Array.IndexOf(parts, "CPM Disputed") > -1 && Array.IndexOf(parts, "CPM Failed") > -1)
+                isCPMDisputedAndCPMFailed = true;
+
+            else if (Array.IndexOf(parts, "CPM Disputed") > -1)
+                isCPMDisputed = true;
+
+            else if (Array.IndexOf(parts, "CPM Failed") > -1)
+                isCPMFailed = true;
+
+            if (Array.IndexOf(parts, "Captured Card") > -1)
+                isCaptureCard = true;
+
+            if (Array.IndexOf(parts, "Normal Transactions") > -1)
+                isParsedTransaction = true;
+
+
+            //******
+
+            
+            builder.Append(" order by " + orderBy);
+            return builder.ToString();
+        }
+        //*******
+        private void BindGrid(string orderBy)
+        {
+            SqlCommand cmd = null;
+            LogableTask task = LogableTask.NewTask("BindGrid");
+
+            try
+            {
+                //outerATM.atm_id in (" + Session[SessionVars.SelectedATMs.ToString()] + ") and
+                this.metaRefresh.Content = (((AppSetting)base.Application[ApplicationVars.AppSettings.ToString()]).DashboardRefreshInterval * 60).ToString();
+                this.Page.RegisterStartupScript("script", "<script>function init() {cd(\"" + (int.Parse(this.metaRefresh.Content) / 60) + "\");} init();</script>");
+                cmd = ConnectionFactory.GetNewCommand(false);
+                cmd.CommandTimeout = 500;
+                cmd.CommandText = GetSQL(orderBy);
+                    
+//@"SELECT ej_parsed_transactions.ej_parsed_transactions_id,outerATM.TITLE, outerATM.ip, trxn_datetime, amount,tsn,pan,notes_dispensed_type1,
+//notes_dispensed_type2,notes_dispensed_type3,notes_dispensed_type4,case when status =0 then 'Successful' 
+//			when status=1 then 'Failed'
+//			when status =2 then 'Suspicious' end status,comment_text,transaction_type_name, transaction_rule_friendly_name,ej_parsed_transactions.task_id,captured_transactions_id
+//                     from captured_transactions inner join ej_parsed_transactions 
+//                    on captured_transactions.transaction_id = ej_parsed_transactions.ej_parsed_transactions_id
+//                    inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id
+//                    inner join atm outerATM
+//                    on ej_parsed_transactions.atm_id = outerATM.atm_id 
+//                    inner join transaction_type on transaction_type.transaction_type_id =ej_parsed_transactions.transaction_type_id
+//                    inner join comment on comment.comment_id = ej_parsed_transactions.comment_id"
+//                + " where  outerATM.IS_ACTIVE =1 "
+//                + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                    " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null union " +
+
+//                     " SELECT ej_captured_card.ej_captured_card_id,outerATM.TITLE, outerATM.ip, capture_time trxn_datetime, 0 amount,tsn,pan,' ' notes_dispensed_type1," +
+//                    " ' ' notes_dispensed_type2,' ' notes_dispensed_type3,' ' notes_dispensed_type4,' ' status,' ' comment_text,'CAPTURED CARD' transaction_type_name, transaction_rule_friendly_name,ej_captured_card.task_id,captured_transactions_id " +
+//            "        from captured_transactions inner join ej_captured_card " +
+//            " on captured_transactions.ej_captured_card_id = ej_captured_card.ej_captured_card_id " +
+//                    " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                    " inner join atm outerATM " +
+//                    " on ej_captured_card.atm_id = outerATM.atm_id " +
+//                 " where  outerATM.IS_ACTIVE =1 "
+//                + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                    " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null union " +
+
+//                    " SELECT ej_parsed_bna_transaction.ej_parsed_bna_transaction_id,outerATM.TITLE, outerATM.ip,  trxn_datetime, amount_authorized amount,seq tsn,pan,' ' notes_dispensed_type1," +
+//                    " ' ' notes_dispensed_type2,' ' notes_dispensed_type3,' ' notes_dispensed_type4,' ' status,' ' comment_text,'BNA FAILED TRXN' transaction_type_name, transaction_rule_friendly_name,ej_parsed_bna_transaction.task_id,captured_transactions_id " +
+//            "        from captured_transactions inner join ej_parsed_bna_transaction " +
+//            " on captured_transactions.transaction_id = ej_parsed_bna_transaction.ej_parsed_bna_transaction_id " +
+//                    " inner join transaction_rule on transaction_rule.transaction_rule_id =captured_transactions.transaction_rule_id " +
+//                    " inner join atm outerATM " +
+//                    " on ej_parsed_bna_transaction.atm_id = outerATM.atm_id " +
+//                 " where  outerATM.IS_ACTIVE =1 "
+//                + " and captured_at >= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + "',103)  " +
+//                    " and captured_at <= convert(datetime,'" + DateTime.Today.ToString("dd/MM/yyyy") + " 23:59:59',103) and expiration_time is null  " +
+
+
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@FromDate", SqlDbType.DateTime);
+                cmd.Parameters[0].Value = DateTime.Today;
+                cmd.Parameters.Add("@ToDate", SqlDbType.DateTime);
+                cmd.Parameters[1].Value = DateTime.Today;
+                cmd.Parameters.Add("@isBNADisputedAndBNAFailed", SqlDbType.Bit);
+                cmd.Parameters[2].Value = isBNADisputedAndBNAFailed;
+                cmd.Parameters.Add("@isBNAFailed", SqlDbType.Bit);
+                cmd.Parameters[3].Value = isBNAFailed;
+                cmd.Parameters.Add("@isBNADisputed", SqlDbType.Bit);
+                cmd.Parameters[4].Value = isBNADisputed;
+                cmd.Parameters.Add("@isCPMDisputedAndCPMFailed", SqlDbType.Bit);
+                cmd.Parameters[5].Value = isCPMDisputedAndCPMFailed;
+                cmd.Parameters.Add("@isCPMDisputed", SqlDbType.Bit);
+                cmd.Parameters[6].Value = isCPMDisputed;
+                cmd.Parameters.Add("@isCPMFailed", SqlDbType.Bit);
+                cmd.Parameters[7].Value = isCPMFailed;
+                cmd.Parameters.Add("@isCaptureCard", SqlDbType.Bit);
+                cmd.Parameters[8].Value = isCaptureCard;
+                cmd.Parameters.Add("@isParsedTransaction", SqlDbType.Bit);
+                cmd.Parameters[9].Value = isParsedTransaction;
+                cmd.Parameters.Add("@Orderby", SqlDbType.VarChar);
+                cmd.Parameters[10].Value = orderBy;
+
+                cmd.CommandText = "ExceptionHandling";
+                
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                this.GridView_Trxn.DataSource = dt;
+                this.GridView_Trxn.DataBind();
+                Literal_AddHeading.Text = "NCR Exception Handling DashBoard - Total No.Of Records : " + dt.Rows.Count;
+            }
+
+
+//            try
+            //            {
+            //                metaRefresh.Content = (((AppSetting)Application[ApplicationVars.AppSettings.ToString()]).DashboardRefreshInterval * 60).ToString();
+            //                Page.RegisterStartupScript("script", "<script>function init() {cd(\"" + (int.Parse(metaRefresh.Content) / 60) + "\");} init();</script>");
+
+//                cmd = ConnectionFactory.GetNewCommand(false);
+            //                cmd.CommandTimeout = 500;
+            //                //                cmd.CommandText = @"select top 1000 atm.title, note_set_type.denomination_type_1, note_set_type.denomination_type_2, note_set_type.denomination_type_3,
+            //                //                                    note_set_type.denomination_type_4, note_set_type.denomination_type_5, 
+            //                //                                    note_set_type.denomination_type_6, note_set_type.denomination_type_7, 
+            //                //                                    p.last_trxn_at, p.cassette1_notes, p.cassette2_notes,
+            //                //                                    p.cassette3_notes, p.cassette4_notes, p.cassette5_notes, p.cassette6_notes,
+            //                //                                    p.cassette7_notes, task.last_invoked ,
+            //                //note_set_type.denomination_type_1 * p.cassette1_notes + 
+            //                //note_set_type.denomination_type_2 * p.cassette2_notes + 
+            //                //note_set_type.denomination_type_3 * p.cassette3_notes + 
+            //                //note_set_type.denomination_type_4 * p.cassette4_notes + 
+            //                //note_set_type.denomination_type_5 * p.cassette5_notes + 
+            //                //note_set_type.denomination_type_6 * p.cassette6_notes + 
+            //                //note_set_type.denomination_type_7 * p.cassette7_notes total 
+            //                //                                    from atm inner join cash_position p on atm.ATM_id = p.atm_id inner join task on p.task_id = task.task_id
+            //                //                                    inner join note_set_type on atm.note_set_type_id = note_set_type.note_set_type_id where atm.IS_ACTIVE = 1 order by atm.title";
+
+
+//                cmd.CommandText = @"select top 1000 outerATM.atm_id,outerATM.title title, note_set_type.denomination_type_1, note_set_type.denomination_type_2, note_set_type.denomination_type_3,
+            //                                    note_set_type.denomination_type_4, note_set_type.denomination_type_5, 
+            //                                    note_set_type.denomination_type_6, note_set_type.denomination_type_7, 
+            //                                    p.last_trxn_at, p.cassette1_notes, p.cassette2_notes,
+            //                                    p.cassette3_notes, p.cassette4_notes, p.cassette5_notes, p.cassette6_notes,
+            //                                    p.cassette7_notes, task.last_invoked ,
+            //note_set_type.denomination_type_1 * p.cassette1_notes + 
+            //note_set_type.denomination_type_2 * p.cassette2_notes + 
+            //note_set_type.denomination_type_3 * p.cassette3_notes + 
+            //note_set_type.denomination_type_4 * p.cassette4_notes + 
+            //note_set_type.denomination_type_5 * p.cassette5_notes + 
+            //note_set_type.denomination_type_6 * p.cassette6_notes + 
+            //note_set_type.denomination_type_7 * p.cassette7_notes total ,
+            //(p.purge_cassette1_notes+p.purge_cassette2_notes+p.purge_cassette3_notes+p.purge_cassette4_notes+p.purge_cassette5_notes+
+            //p.purge_cassette6_notes+p.purge_cassette7_notes) purged_counts,
+            //
+            //(p.purge_cassette1_notes*note_set_type.denomination_type_1+p.purge_cassette2_notes*note_set_type.denomination_type_2+
+            //p.purge_cassette3_notes*note_set_type.denomination_type_3+p.purge_cassette4_notes*note_set_type.denomination_type_4
+            //+p.purge_cassette5_notes*note_set_type.denomination_type_5+p.purge_cassette6_notes*note_set_type.denomination_type_6
+            //+p.purge_cassette7_notes*note_set_type.denomination_type_7) purged_amount,
+            //( select max(rep_datetime) from replenishment where atm_id = outerATM.atm_id )last_replenished_at,
+            //
+            //( select min(cash_order_datetime) from cash_order_monitoring where  atm_id = outerATM.atm_id    
+            //and cash_order_datetime>=convert(datetime,'"+DateTime.Today.ToString("dd/MM/yyyy")+"',103))next_replenished_at, " +
+
+//" ( select min(current_order_suggested_amount) from cash_order_monitoring where  atm_id = outerATM.atm_id  " +
+            //" and cash_order_datetime>=convert(datetime,'"+DateTime.Today.ToString("dd/MM/yyyy")+"',103))amount"+
+
+//" from atm outerATM , cash_position p ,task,note_set_type " +
+            //"where outerATM.atm_id = p.atm_id and outerATM.is_active = 1 and outerATM.exclude_dff = 0 " +
+            //"and p.task_id = task.task_id " +
+            //"and outerATM.note_set_type_id = note_set_type.note_set_type_id " +
+            //"and last_trxn_at = (select max(last_trxn_at)" +
+            //"from cash_position " +
+            //"where cash_position.atm_id = outerATM.atm_id)  order by " + orderBy;
+
+//                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //                DataTable dt = new DataTable();
+            //                adapter.Fill(dt);
+
+//                GridView_CashPositions.DataSource = dt;
+            //                GridView_CashPositions.DataBind();
+            //            }
+            catch (Exception ex)
+            {
+                task.Log(MethodBase.GetCurrentMethod(), TraceLevel.Error, ex);
+                Literal_errorMsg.Text = "<li>" + ex.Message + "</li>";
+            }
+            finally
+            {
+                if (cmd != null)
+                    if (cmd.Connection != null)
+                        if (cmd.Connection.State == ConnectionState.Open)
+                            cmd.Connection.Close();
+
+                task.EndTask();
+            }
+        }
+        protected void GridView_CashPositions_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            if (ViewState["SortExpression"].ToString() == e.SortExpression)
+            {
+                if (ViewState["sortDirection"].ToString() == " asc")
+                    ViewState["sortDirection"] = " desc";
+                else
+                    ViewState["sortDirection"] = " asc";
+            }
+            else
+            {
+                ViewState["SortExpression"] = e.SortExpression;
+                ViewState["sortDirection"] = " asc";
+            }
+            BindGrid(ViewState["SortExpression"].ToString() + ViewState["sortDirection"].ToString());
+
+        }
+
+        protected void GridView_Trxn_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string colorCode = ((DataRowView)e.Row.DataItem).Row.ItemArray[13].ToString();
+                if (colorCode.Length>0)
+                //if (e.Row.Cells[0].Text.Length > 0)
+                    e.Row.Cells[0].BackColor = System.Drawing.ColorTranslator.FromHtml(colorCode);
+          //  if ( e.Row.DataItem
+                //    TransactionRule rule = TransactionRule.LoadTransactionRule("transaction_rule_friendly_name='" + e.Row.Cells[2].Text + "'");
+            //    if (rule != null)
+            //    {
+            //        if (rule.Color != null)
+            //            if (rule.Color.Length > 0)
+            //                e.Row.Cells[0].BackColor = System.Drawing.ColorTranslator.FromHtml(rule.Color);
+            //    }
+            //    if (e.Row.Cells[12].Text == "Successful")
+            //    {
+            //        e.Row.Cells[12].BackColor = System.Drawing.Color.Green;
+            //        e.Row.Cells[12].ForeColor = System.Drawing.Color.White;
+            //    }
+            //    else if (e.Row.Cells[12].Text == "Failed")
+            //    {
+            //        e.Row.Cells[12].BackColor = System.Drawing.Color.Red;
+            //        e.Row.Cells[12].ForeColor = System.Drawing.Color.White;
+            //    }
+
+
+            }
+
+        }
+        protected void DialogCallBack_Callback(object sender, CallBackEventArgs e)
+        {
+            //LogableTask task = LogableTask.NewTask("DialogCallBack_Callback");
+            // SqlCommand cmd = ConnectionFactory.GetNewCommand(true);
+            // cmd.CommandTimeout = 600;
+            LogableTask task = LogableTask.NewTask("DialogCallBack_Callback");
+            EjParsedBnaTransaction objEjParsedBNA = null;
+            EjParsedCpmTransaction objEjParsedCPM = null;
+            EjParsedTransactions objEjParsed = null;
+            int? transactionTypeId = null;
+            int atmID = -1;
+            try
+            {
+                CapturedTransactions capturedTrxn = CapturedTransactions.LoadCapturedTransactionsByPk(int.Parse(e.Parameters[0]));
+                if (capturedTrxn != null)
+                {
+                    capturedTrxn.ExpirationTime = DateTime.Now;
+                    capturedTrxn.UserId = ((AppUser)Session[SessionVars.user.ToString()]).UserId;
+                    capturedTrxn.Comments = e.Parameters[1];
+                    capturedTrxn.TrxnStatus = e.Parameters[2];
+
+                    //editing done by shariq 01Sep2015***********
+                    if (e.Parameters[3] != "")
+                        capturedTrxn.Amount = Convert.ToDecimal(e.Parameters[3]);
+                    
+                    //***********
+                  
+                    if (capturedTrxn.EjParsedBnaTransactionsId != null)
+                    {
+                        objEjParsedBNA = EjParsedBnaTransaction.LoadEjParsedBnaTransactionByPk(Convert.ToInt32(capturedTrxn.EjParsedBnaTransactionsId));
+                        transactionTypeId = objEjParsedBNA.TransactionTypeId;
+                        atmID = objEjParsedBNA.AtmId;
+                    }
+
+                    else if (capturedTrxn.EjParsedCpmTransactionsId != null)
+                    {
+                        objEjParsedCPM = EjParsedCpmTransaction.LoadEjParsedCpmTransactionByPk(Convert.ToInt32(capturedTrxn.EjParsedCpmTransactionsId));
+                        transactionTypeId = objEjParsedCPM.TransactionTypeId;
+                        atmID = objEjParsedCPM.AtmId;
+                    }
+                    else if (capturedTrxn.EjParsedTransactionsId != null)
+                    {
+                        objEjParsed = EjParsedTransactions.LoadEjParsedTransactionsByPk(Convert.ToInt32(capturedTrxn.EjParsedTransactionsId));
+                        transactionTypeId = objEjParsed.TransactionTypeId;
+                        atmID = objEjParsed.AtmId.Value;
+                    }
+                    capturedTrxn.Save();
+                    SmsTaskHelper.CheckConfiguration(transactionTypeId, null, capturedTrxn.CapturedTransactionsId, null, null,capturedTrxn.TrxnStatus,atmID, null);
+                }
+                e.Output.Write("<script> window.location='DashBoardGrid_EJFraudDetected.aspx';</script>");
+            }
+            catch (Exception ex)
+            {
+                task.Log(MethodBase.GetCurrentMethod(), TraceLevel.Info, ex);
+            }
+
+            finally
+            {
+                task.EndTask();
+            }
+        }
+
+             //Added by Ali Shah on 28th Sep, 2015
+        //To provide feature of Customer Detail Button
+
+        protected void DialogCallBackCustomerDetail_Callback(object sender, CallBackEventArgs e)
+        {
+            //SmsCustomerDetail customer = SmsCustomerDetail.LoadSmsCustomerDetailByPk(int.Parse(capturedTrxnID));
+            StringBuilder builder = new StringBuilder();
+            try
+            {
+                SmsTask smsTask = SmsTask.LoadSmsTask("captured_transaction_id = " + e.Parameters[0]);
+                if (smsTask != null)
+                {
+
+                    SmsCustomerDetail smsCustomerDetail = SmsCustomerDetail.LoadSmsCustomerDetail("sms_task_id = " + smsTask.SmsTaskId);
+                    if (smsCustomerDetail != null)
+                    {
+                        builder.Append("<tr><td>Customer Name:</td><td>" + smsCustomerDetail.CustomerName + "</td></tr>");
+                        builder.Append("<tr><td>Customer Telephone:</td><td>" + smsCustomerDetail.CustomerTelephone + "</td></tr>");
+                        builder.Append("<tr><td>Customer Mobile No.:</td><td>" + smsCustomerDetail.CustomerMobileNo + "</td></tr>");
+                        builder.Append("<tr><td>Customer Email:</td><td>" + smsCustomerDetail.CustomerEmail + "</td></tr>");
+                        builder.Append("<tr><td>Customer Category:</td><td>" + smsCustomerDetail.CustomerCategory + "</td></tr>");
+                        builder.Append("<tr><td>Available Balance:</td><td>" + smsCustomerDetail.AvailableBalance + "</td></tr>");
+                        builder.Append("<tr><td>RM Name:</td><td>" + smsCustomerDetail.RmName + "</td></tr>");
+                        builder.Append("<tr><td>RM Contact:</td><td>" + smsCustomerDetail.RmContact + "</td></tr>");
+                        builder.Append("<tr><td>RM Email:</td><td>" + smsCustomerDetail.RmEmail + "</td></tr>");
+                        e.Output.Write("<script> receiveCallBackResult('<table border=1 width=100%>" + builder.ToString() + "</table>');</script>");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                LogableTask.LogMonoActivityTask("ViewInquiry", MethodBase.GetCurrentMethod(), TraceLevel.Error, ex);
+            }
+            
+        
+        }
+
+    }
+
+}

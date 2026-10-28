@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetPowerNetworkDown" targetNamespace="http://tempuri.org/DataSetPowerNetworkDown.xsd" xmlns:mstns="http://tempuri.org/DataSetPowerNetworkDown.xsd" xmlns="http://tempuri.org/DataSetPowerNetworkDown.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetPowerNetworkDown" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetPowerNetworkDown" msprop:Generator_UserDSName="DataSetPowerNetworkDown">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtPowerNetworkDown" msprop:Generator_TableClassName="dtPowerNetworkDownDataTable" msprop:Generator_TableVarName="tabledtPowerNetworkDown" msprop:Generator_RowChangedName="dtPowerNetworkDownRowChanged" msprop:Generator_TablePropName="dtPowerNetworkDown" msprop:Generator_RowDeletingName="dtPowerNetworkDownRowDeleting" msprop:Generator_RowChangingName="dtPowerNetworkDownRowChanging" msprop:Generator_RowEvHandlerName="dtPowerNetworkDownRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPowerNetworkDownRowDeleted" msprop:Generator_RowClassName="dtPowerNetworkDownRow" msprop:Generator_UserTableName="dtPowerNetworkDown" msprop:Generator_RowEvArgName="dtPowerNetworkDownRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Host" msprop:Generator_ColumnVarNameInTable="columnHost" msprop:Generator_ColumnPropNameInRow="Host" msprop:Generator_ColumnPropNameInTable="HostColumn" msprop:Generator_UserColumnName="Host" type="xs:string" minOccurs="0" />
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" type="xs:string" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NetworkDownTime" msprop:Generator_ColumnVarNameInTable="columnNetworkDownTime" msprop:Generator_ColumnPropNameInRow="NetworkDownTime" msprop:Generator_ColumnPropNameInTable="NetworkDownTimeColumn" msprop:Generator_UserColumnName="NetworkDownTime" type="xs:string" minOccurs="0" />
+              <xs:element name="PowerDownTime" msprop:Generator_ColumnVarNameInTable="columnPowerDownTime" msprop:Generator_ColumnPropNameInRow="PowerDownTime" msprop:Generator_ColumnPropNameInTable="PowerDownTimeColumn" msprop:Generator_UserColumnName="PowerDownTime" type="xs:string" minOccurs="0" />
+              <xs:element name="AtmOnUpsGenerator" msprop:Generator_ColumnVarNameInTable="columnAtmOnUpsGenerator" msprop:Generator_ColumnPropNameInRow="AtmOnUpsGenerator" msprop:Generator_ColumnPropNameInTable="AtmOnUpsGeneratorColumn" msprop:Generator_UserColumnName="AtmOnUpsGenerator" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtTotalPowerNetworkDown" msprop:Generator_TableClassName="dtTotalPowerNetworkDownDataTable" msprop:Generator_TableVarName="tabledtTotalPowerNetworkDown" msprop:Generator_TablePropName="dtTotalPowerNetworkDown" msprop:Generator_RowDeletingName="dtTotalPowerNetworkDownRowDeleting" msprop:Generator_RowChangingName="dtTotalPowerNetworkDownRowChanging" msprop:Generator_RowEvHandlerName="dtTotalPowerNetworkDownRowChangeEventHandler" msprop:Generator_RowDeletedName="dtTotalPowerNetworkDownRowDeleted" msprop:Generator_UserTableName="dtTotalPowerNetworkDown" msprop:Generator_RowChangedName="dtTotalPowerNetworkDownRowChanged" msprop:Generator_RowEvArgName="dtTotalPowerNetworkDownRowChangeEvent" msprop:Generator_RowClassName="dtTotalPowerNetworkDownRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Host" msprop:Generator_ColumnVarNameInTable="columnHost" msprop:Generator_ColumnPropNameInRow="Host" msprop:Generator_ColumnPropNameInTable="HostColumn" msprop:Generator_UserColumnName="Host" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPowerDown" msprop:Generator_ColumnVarNameInTable="columnTotalPowerDown" msprop:Generator_ColumnPropNameInRow="TotalPowerDown" msprop:Generator_ColumnPropNameInTable="TotalPowerDownColumn" msprop:Generator_UserColumnName="TotalPowerDown" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalNetworkDown" msprop:Generator_ColumnVarNameInTable="columnTotalNetworkDown" msprop:Generator_ColumnPropNameInRow="TotalNetworkDown" msprop:Generator_ColumnPropNameInTable="TotalNetworkDownColumn" msprop:Generator_UserColumnName="TotalNetworkDown" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

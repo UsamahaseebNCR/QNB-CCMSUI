@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsFTPFileMonitoringRpt" targetNamespace="http://tempuri.org/DsFTPFileMonitoringRpt.xsd" xmlns:mstns="http://tempuri.org/DsFTPFileMonitoringRpt.xsd" xmlns="http://tempuri.org/DsFTPFileMonitoringRpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsFTPFileMonitoringRpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DsFTPFileMonitoringRpt" msprop:Generator_DataSetName="DsFTPFileMonitoringRpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FTPFileMonitoring" msprop:Generator_UserTableName="FTPFileMonitoring" msprop:Generator_RowDeletedName="FTPFileMonitoringRowDeleted" msprop:Generator_RowChangedName="FTPFileMonitoringRowChanged" msprop:Generator_RowClassName="FTPFileMonitoringRow" msprop:Generator_RowChangingName="FTPFileMonitoringRowChanging" msprop:Generator_RowEvArgName="FTPFileMonitoringRowChangeEvent" msprop:Generator_RowEvHandlerName="FTPFileMonitoringRowChangeEventHandler" msprop:Generator_TableClassName="FTPFileMonitoringDataTable" msprop:Generator_TableVarName="tableFTPFileMonitoring" msprop:Generator_RowDeletingName="FTPFileMonitoringRowDeleting" msprop:Generator_TablePropName="FTPFileMonitoring">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="creation_time" msprop:Generator_UserColumnName="creation_time" msprop:Generator_ColumnVarNameInTable="columncreation_time" msprop:Generator_ColumnPropNameInRow="creation_time" msprop:Generator_ColumnPropNameInTable="creation_timeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="server_name" msprop:Generator_UserColumnName="server_name" msprop:Generator_ColumnVarNameInTable="columnserver_name" msprop:Generator_ColumnPropNameInRow="server_name" msprop:Generator_ColumnPropNameInTable="server_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="task_type_name" msprop:Generator_UserColumnName="task_type_name" msprop:Generator_ColumnVarNameInTable="columntask_type_name" msprop:Generator_ColumnPropNameInRow="task_type_name" msprop:Generator_ColumnPropNameInTable="task_type_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="failure_reason" msprop:Generator_UserColumnName="failure_reason" msprop:Generator_ColumnVarNameInTable="columnfailure_reason" msprop:Generator_ColumnPropNameInRow="failure_reason" msprop:Generator_ColumnPropNameInTable="failure_reasonColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_logo" msprop:Generator_UserColumnName="bank_logo" msprop:Generator_ColumnPropNameInRow="bank_logo" msprop:Generator_ColumnVarNameInTable="columnbank_logo" msprop:Generator_ColumnPropNameInTable="bank_logoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="region_id" msprop:Generator_UserColumnName="region_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_UserColumnName="parent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_UserColumnName="region_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_UserColumnName="organization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInTable="organizationColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

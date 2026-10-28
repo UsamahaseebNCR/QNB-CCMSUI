@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsCPMCounter" targetNamespace="http://tempuri.org/DsCPMCounter.xsd" xmlns:mstns="http://tempuri.org/DsCPMCounter.xsd" xmlns="http://tempuri.org/DsCPMCounter.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsCPMCounter" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DsCPMCounter" msprop:Generator_UserDSName="DsCPMCounter">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CPMCounter" msprop:Generator_UserTableName="CPMCounter" msprop:Generator_RowEvArgName="CPMCounterRowChangeEvent" msprop:Generator_TableVarName="tableCPMCounter" msprop:Generator_TablePropName="CPMCounter" msprop:Generator_RowDeletingName="CPMCounterRowDeleting" msprop:Generator_RowChangingName="CPMCounterRowChanging" msprop:Generator_RowDeletedName="CPMCounterRowDeleted" msprop:Generator_TableClassName="CPMCounterDataTable" msprop:Generator_RowChangedName="CPMCounterRowChanged" msprop:Generator_RowEvHandlerName="CPMCounterRowChangeEventHandler" msprop:Generator_RowClassName="CPMCounterRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cpm_pkt_1" msprop:Generator_ColumnVarNameInTable="columncpm_pkt_1" msprop:Generator_ColumnPropNameInRow="cpm_pkt_1" msprop:Generator_ColumnPropNameInTable="cpm_pkt_1Column" msprop:Generator_UserColumnName="cpm_pkt_1" type="xs:int" minOccurs="0" />
+              <xs:element name="cpm_pkt_2" msprop:Generator_ColumnVarNameInTable="columncpm_pkt_2" msprop:Generator_ColumnPropNameInRow="cpm_pkt_2" msprop:Generator_ColumnPropNameInTable="cpm_pkt_2Column" msprop:Generator_UserColumnName="cpm_pkt_2" type="xs:int" minOccurs="0" />
+              <xs:element name="cpm_pkt_3" msprop:Generator_ColumnVarNameInTable="columncpm_pkt_3" msprop:Generator_ColumnPropNameInRow="cpm_pkt_3" msprop:Generator_ColumnPropNameInTable="cpm_pkt_3Column" msprop:Generator_UserColumnName="cpm_pkt_3" type="xs:int" minOccurs="0" />
+              <xs:element name="cpm_pkt_4" msprop:Generator_ColumnVarNameInTable="columncpm_pkt_4" msprop:Generator_ColumnPropNameInRow="cpm_pkt_4" msprop:Generator_ColumnPropNameInTable="cpm_pkt_4Column" msprop:Generator_UserColumnName="cpm_pkt_4" type="xs:int" minOccurs="0" />
+              <xs:element name="last_cpm_deposit_at" msprop:Generator_ColumnVarNameInTable="columnlast_cpm_deposit_at" msprop:Generator_ColumnPropNameInRow="last_cpm_deposit_at" msprop:Generator_ColumnPropNameInTable="last_cpm_deposit_atColumn" msprop:Generator_UserColumnName="last_cpm_deposit_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" msprop:Generator_UserColumnName="region_id" type="xs:int" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" msprop:Generator_UserColumnName="parent_region_id" type="xs:int" minOccurs="0" />
+              <xs:element name="bank_logo" msprop:Generator_ColumnVarNameInTable="columnbank_logo" msprop:Generator_ColumnPropNameInRow="bank_logo" msprop:Generator_ColumnPropNameInTable="bank_logoColumn" msprop:Generator_UserColumnName="bank_logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

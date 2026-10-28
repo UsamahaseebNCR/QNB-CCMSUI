@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsUser" targetNamespace="http://tempuri.org/DsUser.xsd" xmlns:mstns="http://tempuri.org/DsUser.xsd" xmlns="http://tempuri.org/DsUser.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsUser" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsUser" msprop:Generator_UserDSName="DsUser">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="user_login" msprop:Generator_ColumnVarNameInTable="columnuser_login" msprop:Generator_ColumnPropNameInRow="user_login" msprop:Generator_ColumnPropNameInTable="user_loginColumn" msprop:Generator_UserColumnName="user_login" type="xs:string" minOccurs="0" />
+              <xs:element name="user_full_name" msprop:Generator_ColumnVarNameInTable="columnuser_full_name" msprop:Generator_ColumnPropNameInRow="user_full_name" msprop:Generator_ColumnPropNameInTable="user_full_nameColumn" msprop:Generator_UserColumnName="user_full_name" type="xs:string" minOccurs="0" />
+              <xs:element name="user_creation_time" msprop:Generator_ColumnVarNameInTable="columnuser_creation_time" msprop:Generator_ColumnPropNameInRow="user_creation_time" msprop:Generator_ColumnPropNameInTable="user_creation_timeColumn" msprop:Generator_UserColumnName="user_creation_time" type="xs:string" minOccurs="0" />
+              <xs:element name="user_is_active" msprop:Generator_ColumnVarNameInTable="columnuser_is_active" msprop:Generator_ColumnPropNameInRow="user_is_active" msprop:Generator_ColumnPropNameInTable="user_is_activeColumn" msprop:Generator_UserColumnName="user_is_active" type="xs:string" minOccurs="0" />
+              <xs:element name="user_email" msprop:Generator_ColumnVarNameInTable="columnuser_email" msprop:Generator_ColumnPropNameInRow="user_email" msprop:Generator_ColumnPropNameInTable="user_emailColumn" msprop:Generator_UserColumnName="user_email" type="xs:string" minOccurs="0" />
+              <xs:element name="user_type" msprop:Generator_ColumnVarNameInTable="columnuser_type" msprop:Generator_ColumnPropNameInRow="user_type" msprop:Generator_ColumnPropNameInTable="user_typeColumn" msprop:Generator_UserColumnName="user_type" type="xs:string" minOccurs="0" />
+              <xs:element name="user_modification_time" msprop:Generator_ColumnVarNameInTable="columnuser_modification_time" msprop:Generator_ColumnPropNameInRow="user_modification_time" msprop:Generator_ColumnPropNameInTable="user_modification_timeColumn" msprop:Generator_UserColumnName="user_modification_time" type="xs:string" minOccurs="0" />
+              <xs:element name="user_group" msprop:Generator_ColumnVarNameInTable="columnuser_group" msprop:Generator_ColumnPropNameInRow="user_group" msprop:Generator_ColumnPropNameInTable="user_groupColumn" msprop:Generator_UserColumnName="user_group" type="xs:string" minOccurs="0" />
+              <xs:element name="user_last_login_time" msprop:Generator_ColumnVarNameInTable="columnuser_last_login_time" msprop:Generator_ColumnPropNameInRow="user_last_login_time" msprop:Generator_ColumnPropNameInTable="user_last_login_timeColumn" msprop:Generator_UserColumnName="user_last_login_time" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

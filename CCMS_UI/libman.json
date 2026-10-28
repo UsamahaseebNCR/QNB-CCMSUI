@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.7.1",
+      "destination": "content/jquery/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jqueryui@1.13.3",
+      "destination": "lib/jqueryui/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jqueryui@1.13.3",
+      "destination": "content/DatePicker/images/",
+      "files": [
+        "themes/base/images/ui-icons_444444_256x240.png",
+        "themes/base/images/ui-icons_555555_256x240.png",
+        "themes/base/images/ui-icons_777620_256x240.png",
+        "themes/base/images/ui-icons_777777_256x240.png",
+        "themes/base/images/ui-icons_cc0000_256x240.png",
+        "themes/base/images/ui-icons_ffffff_256x240.png"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "fullcalendar@6.1.15",
+      "destination": "lib/fullcalendar/"
+    }
+  ]
+}

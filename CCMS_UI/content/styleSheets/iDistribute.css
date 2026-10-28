@@ -1,0 +1,313 @@
+/* CSS Document */
+
+
+/*************** Component Art Grid *****************/
+
+.Grid
+{
+	background-color: #FFFFFF;
+	cursor: pointer;
+}
+
+.HeadingCellAndHeadingCellText 
+{
+
+	background-image: url(../images/gridheadbg.jpg);
+	height: 25px;
+	border-bottom: #c9c9c9 1px solid;
+	border-right: #c9c9c9 1px solid;
+	border-left: #c9c9c9 1px solid;
+
+	padding-left: 5px;
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #ffffff;
+
+
+}
+.HeadingCell
+{
+	background-image: url(../images/gridheadbg.jpg);
+	height: 25px;
+	border-bottom: #c9c9c9 1px solid;
+	border-right: #c9c9c9 1px solid;
+	border-left: #c9c9c9 1px solid;
+}
+
+.HeadingCellText
+{
+	padding-left: 5px;
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.Row
+{
+	background-color: #ffffff;
+	cursor: default;
+}
+
+.Row td.DataCell
+{
+	padding-left: 5px;
+	/*border-right: 1px solid #c9c9c9;*/
+	border-bottom: 1px solid #BFDBF5;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+}
+
+.Row td.LastDataCell 
+{ 
+  background-color: #EFEFF4; 
+} 
+
+.AlternatingRow
+{
+	background-color: #ffffff;
+	cursor: default;
+}
+
+.AlternatingRow td.DataCell
+{
+	padding-left: 5px;
+	/*border-right: 1px solid #c9c9c9;*/
+	border-bottom: 1px solid #BFDBF5;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+}
+
+.GridFooter
+{
+	cursor: default;
+	/*padding: 5px;*/
+	vertical-align: bottom;
+}
+
+.GridFooter a
+{
+	font-family: verdana;
+	color: #4e4e4e;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.GridFooterText
+{
+	color: #4e4e4e;
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.CellText
+{
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: #4e4e4e;
+}
+
+.SelectedRow
+{
+}
+
+.SelectedRow td.DataCell
+{
+	background-image: url(../images/grid/grid_selected_item_bg.gif);
+	padding-left: 5px;
+	/*border-right: 1px solid #c9c9c9;*/
+	/*border-bottom: 1px solid #c9c9c9;*/
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+	border-bottom: 1px solid #BFDBF5;
+}
+
+.SelectedRow td.FirstDataCell
+{
+	border-left: 1px solid #4B4B6F;
+	border-right: 0px;
+	padding-left: 2px;
+	padding-right: 3px;
+}
+
+.SelectedRow td.LastDataCell
+{
+	border-right: 1px solid #4B4B6F;
+}
+
+/*************** icam video *******************/
+TH
+{
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000;
+	font-family: Tahoma;
+	background-color: #e6e8e7;
+	height: 20px;
+	padding-left: 5px;
+	border-right: #ebebeb 1px outset;
+	border-top: #ebebeb 1px outset;
+	border-left: #ebebeb 1px outset;
+	border-bottom: #ebebeb 1px outset;
+}
+
+.headertext
+{
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: left;
+	text-decoration: none;
+	vertical-align: middle;
+	
+	
+}
+
+BODY
+{
+	background-image: url(images/bodybg.gif);
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	font-family: Square 721 BT;
+	font-size: 10px;
+}
+
+.ConfirmationText
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Navy;
+}
+
+TD
+{
+	font-size: 10px;
+	font-family: Verdana;
+	color: #000000;
+}
+
+td.HomePage
+{
+	font-size: 11px;
+	font-family: Verdana;
+	color: #000000;
+	font-weight: bold;
+}
+
+td.heading
+{
+	font-size: 11px;
+	color: #000000;
+	font-family: Tahoma;
+	height: 20px;
+	padding-left: 5px;
+	font-weight: bold;
+	background-color: #e6e8e7;
+}
+
+td.SearchHeadPaneGradient
+{
+	background-image: url(../images/serachheadgradient.jpg);
+	height: 15px;
+}
+td.PageBottomGradient
+{
+	background-image: url(../images/pagebottomgradient.jpg);
+	height: 37px;
+}
+td.TreeSearch
+{
+	background-image: url(../images/treesearchbg.jpg);	
+	height:54px;
+}
+td.Main
+{
+	background-image: url(../images/headermiddle.jpg);	
+	height:59px;
+}
+.PageHeading
+{
+	background-image: url(../images/headbg.jpg);
+	height: 25px;
+	color: #ffffff;
+	padding-left: 5px;
+	font-size: 11px;
+	font-family: Tahoma;
+	font-weight: bold;
+}
+
+.HomePgButton
+{
+	background-image: url(images/welcomeButtonsBG.jpg);
+	height:100px;
+	width:158px;
+	
+}
+
+tr.DialogField
+{
+	padding-left: 8%;
+	padding-top: 2px;
+}
+
+.button, button
+{
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	height: 20px;
+	vertical-align: middle;
+	background-color: Black;
+}
+
+Input.Button
+{
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	height: 20px;
+	vertical-align: middle;
+	background-color: Black;
+}
+
+.inputform
+{
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+	border-right: #c9c9c9 1px solid;
+	border-top: #c9c9c9 2px solid;
+	border-left: #c9c9c9 1px solid;
+	border-bottom: #c9c9c9 1px solid;
+}
+.mainbox
+{
+	width: 100%;
+	
+}
+.ValidationText
+{
+	font-family: Verdana;
+	font-size: 11px;
+	color: Red;
+}
+.Treepaneborder
+{
+	border-right: black 1px solid;
+	border-top: black 1px solid;
+	border-left: black 1px solid;
+	border-bottom: black 1px solid;
+}

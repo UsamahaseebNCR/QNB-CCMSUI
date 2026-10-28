@@ -1,0 +1,292 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ParamPNCDepositReportingForSDM.aspx.cs"
+    Inherits="CCMSUI.ParamPNCDepositReportingForSDM" %>
+
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link href="../../content/styleSheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/styleSheets/bootstrap-theme.min.css" rel="stylesheet">
+    <title>Denomination Utilization Analysis</title>
+    <script src="../../content/shortcut.js" type="text/javascript" language="javascript">
+    </script>
+    <link href="../../content/iSuite.css" rel="stylesheet" />
+    <style type="text/css">
+        .style2
+        {
+            height: 14px;
+        }
+    </style>
+</head>
+<body style="margin: 0">
+    <form id="form1" runat="server">
+    <div style="text-align: center; font-size: xx-large; color: #FFFFFF; background-color: #003366;">
+        PNC Deposit Reporting
+    </div>
+    <%--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-toggle">
+                <span style="color: white; font-size: xx-large; ">PNC Deposit Reporting</span>
+            </div>
+        </div>
+    </div>--%>
+    <div>
+        <table width="100%" border="0">
+            <tr style="font-size: larger; font-weight: bold; font-family: Arial; color: White">
+                <td align="center" style="font-size: large; font-weight: bold; margin-top: 50px;
+                    color: Black; background-color: #CCCCCC;" colspan="2">
+                    <asp:Literal ID="Literal_Title" runat="server" Text="SDM Business And Non Business Rule Analysis "></asp:Literal>
+                </td>
+            </tr>
+            <tr style="background-color: #CCCCCC;">
+                <td>
+                    <table style="font-weight: bold">
+                        <tr>
+                            <td>
+                                No. Of Units :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_totalATMs" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Items Processed :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_ItemsProcessed" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                % Acceptance :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_AccPerc" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                % Rejection :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_RejPerc" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td colspan="2" align="right">
+                    <table>
+                        <tr>
+                            <td style="text-align: right; font-weight: bold" colspan="2">
+                                Print Date & Time :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_currentTime" runat="server" Font-Bold="true"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; font-weight: bold" colspan="2" class="style2">
+                                From Date :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_FromDate" runat="server" Font-Bold="true"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; font-weight: bold" colspan="2">
+                                To Date :
+                            </td>
+                            <td>
+                                <asp:Label ID="Label_ToDate" runat="server" Font-Bold="true"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="chartRow">
+                <td valign="top" colspan="2">
+                    <center>
+                        <table style="margin-top: 10px; border: 1px;" border="0" width="100%">
+                            <tr>
+                                <td>
+                                    <center>
+                                        <table>
+                                            <tr>
+                                                <td valign="top">
+                                                    <asp:Chart ID="Chart_AccCount" runat="server" BorderColor="#B54001" Width="550px"
+                                                        Height="300px">
+                                                        <Titles>
+                                                            <asp:Title Font="Trebuchet MS, 14.25pt, style=Bold" ForeColor="26, 59, 105">
+                                                            </asp:Title>
+                                                        </Titles>
+                                                        <Legends>
+                                                            <asp:Legend BackColor="Transparent" Alignment="Near" Docking="Bottom" Font="Trebuchet MS, 8.25pt, style=Bold"
+                                                                IsTextAutoFit="true" Name="Default" LegendStyle="Row" Title="Legends" Enabled="false">
+                                                            </asp:Legend>
+                                                        </Legends>
+                                                        <BorderSkin SkinStyle="None"></BorderSkin>
+                                                        <Series>
+                                                            <asp:Series Name="Default" YValuesPerPoint="2" ChartType="Pie" IsValueShownAsLabel="true"
+                                                                IsVisibleInLegend="true">
+                                                            </asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="ChartArea1" BackGradientStyle="None" BorderWidth="3">
+                                                                <%--<Area3DStyle Rotation="5" Perspective="10" Enable3D="false" LightStyle="Realistic"
+                                    Inclination="2" PointDepth="200" IsRightAngleAxes="true" WallWidth="0" IsClustered="False" />--%>
+                                                                <%--<Position Y="2" Height="94" Width="94" X="2"></Position>--%>
+                                                                <Area3DStyle Rotation="25" Perspective="9" LightStyle="Realistic" Inclination="40"
+                                                                    IsRightAngleAxes="False" WallWidth="3" IsClustered="False" />
+                                                                <AxisY LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 11.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="White" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 11.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="White" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </td>
+                                                <td valign="top">
+                                                    <asp:Chart ID="Chart_RejectRate" runat="server" Width="550px" Palette="BrightPastel"
+                                                        EnableViewState="false" Height="300px">
+                                                        <Titles>
+                                                            <asp:Title Font="Trebuchet MS, 14.25pt, style=Bold" Name="Title1" ForeColor="26, 59, 105"
+                                                                Text="PNC CHECK REJECT RATE">
+                                                            </asp:Title>
+                                                        </Titles>
+                                                        <Legends>
+                                                            <%--<asp:Legend BackColor="Transparent" Alignment="Center" Docking="Right" Font="Trebuchet MS, 8.25pt, style=Bold"
+                                                    IsTextAutoFit="False" Name="Default" LegendStyle="Column" Title="Legends" Enabled="true">
+                                                </asp:Legend>--%>
+                                                            <asp:Legend TitleFont="Microsoft Sans Serif, 8pt, style=Bold" Docking="Bottom" BackColor="Transparent"
+                                                                Font="Trebuchet MS, 8.25pt, style=Bold" IsTextAutoFit="False" LegendStyle="Column"
+                                                                Name="Default">
+                                                            </asp:Legend>
+                                                        </Legends>
+                                                        <BorderSkin SkinStyle="None"></BorderSkin>
+                                                        <Series>
+                                                            <asp:Series Name="Successful" ChartType="StackedColumn" IsValueShownAsLabel="true">
+                                                            </asp:Series>
+                                                            <asp:Series Name="Failed" ChartType="StackedColumn" IsValueShownAsLabel="true">
+                                                            </asp:Series>
+                                                            <asp:Series Name="RejectRate%" ChartType="StackedColumn" IsValueShownAsLabel="true">
+                                                            </asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="ChartArea1" BackColor="White" BorderWidth="3">
+                                                                <Area3DStyle Rotation="0" />
+                                                                <AxisY LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" IntervalType="Days" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <center>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <asp:Chart ID="Chart_BusinessRuleRejectCauses" runat="server" Width="550px" Height="300px">
+                                                        <Titles>
+                                                            <asp:Title Font="Trebuchet MS, 14.25pt, style=Bold" Name="Title1" ForeColor="26, 59, 105">
+                                                            </asp:Title>
+                                                        </Titles>
+                                                        <Legends>
+                                                            <asp:Legend BackColor="Transparent" Alignment="Center" Docking="Right" Font="Trebuchet MS, 8.25pt, style=Bold"
+                                                                Enabled="false" IsTextAutoFit="False" Name="Default" LegendStyle="Column" Title="Legends">
+                                                            </asp:Legend>
+                                                        </Legends>
+                                                        <BorderSkin SkinStyle="None"></BorderSkin>
+                                                        <Series>
+                                                            <asp:Series Name="Default" YValuesPerPoint="2" ChartType="Column" IsValueShownAsLabel="true"
+                                                                IsVisibleInLegend="true">
+                                                            </asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="ChartArea1" BackColor="White" BorderWidth="3">
+                                                                <Area3DStyle Rotation="0" />
+                                                                <AxisY LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="64, 64, 64, 64" Interval="1">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </td>
+                                                <td>
+                                                    <asp:Chart ID="Chart_NonBusinessRuleRejectCauses" runat="server" Width="550px" Height="300px">
+                                                        <Titles>
+                                                            <asp:Title Font="Trebuchet MS, 14.25pt, style=Bold" Name="Title1" ForeColor="26, 59, 105">
+                                                            </asp:Title>
+                                                        </Titles>
+                                                        <Legends>
+                                                            <asp:Legend BackColor="Transparent" Alignment="Center" Docking="Right" Font="Trebuchet MS, 8.25pt, style=Bold"
+                                                                IsTextAutoFit="False" Name="Default" LegendStyle="Column" Title="Legends" Enabled="false">
+                                                            </asp:Legend>
+                                                        </Legends>
+                                                        <BorderSkin SkinStyle="None"></BorderSkin>
+                                                        <Series>
+                                                            <asp:Series Name="Default" YValuesPerPoint="2" ChartType="Column" IsValueShownAsLabel="true"
+                                                                IsVisibleInLegend="true">
+                                                            </asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="ChartArea1" BackColor="White" BorderWidth="3">
+                                                                <Area3DStyle Rotation="0" />
+                                                                <AxisY LineColor="64, 64, 64, 64">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="64, 64, 64, 64" Interval="1">
+                                                                    <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                                                    <MajorGrid LineColor="GhostWhite" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </center>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="button" runat="server" id="refresh" style="display: none" />
+    </form>
+    <div>
+        <table width="100%">
+            <tr>
+                <td align="right">
+                    <img src="../../images/pnclogo.png" height="100px" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

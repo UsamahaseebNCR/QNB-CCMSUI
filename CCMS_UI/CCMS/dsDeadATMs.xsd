@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDeadATMs" targetNamespace="http://tempuri.org/dsDeadATMs.xsd" xmlns:mstns="http://tempuri.org/dsDeadATMs.xsd" xmlns="http://tempuri.org/dsDeadATMs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDeadATMs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDeadATMs" msprop:Generator_UserDSName="dsDeadATMs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtDeadATMs" msprop:Generator_TableClassName="dtDeadATMsDataTable" msprop:Generator_TableVarName="tabledtDeadATMs" msprop:Generator_TablePropName="dtDeadATMs" msprop:Generator_RowDeletingName="dtDeadATMsRowDeleting" msprop:Generator_UserTableName="dtDeadATMs" msprop:Generator_RowChangingName="dtDeadATMsRowChanging" msprop:Generator_RowEvHandlerName="dtDeadATMsRowChangeEventHandler" msprop:Generator_RowDeletedName="dtDeadATMsRowDeleted" msprop:Generator_RowEvArgName="dtDeadATMsRowChangeEvent" msprop:Generator_RowChangedName="dtDeadATMsRowChanged" msprop:Generator_RowClassName="dtDeadATMsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="heart_beat_received_at" msprop:Generator_ColumnVarNameInTable="columnheart_beat_received_at" msprop:Generator_ColumnPropNameInRow="heart_beat_received_at" msprop:Generator_ColumnPropNameInTable="heart_beat_received_atColumn" msprop:Generator_UserColumnName="heart_beat_received_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

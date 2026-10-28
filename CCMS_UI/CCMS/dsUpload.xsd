@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsUpload" targetNamespace="http://tempuri.org/dsUpload.xsd" xmlns:mstns="http://tempuri.org/dsUpload.xsd" xmlns="http://tempuri.org/dsUpload.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsUpload" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsUpload" msprop:Generator_UserDSName="dsUpload">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="package_title" msprop:Generator_ColumnVarNameInTable="columnpackage_title" msprop:Generator_ColumnPropNameInRow="package_title" msprop:Generator_ColumnPropNameInTable="package_titleColumn" msprop:Generator_UserColumnName="package_title" type="xs:string" minOccurs="0" />
+              <xs:element name="creation_time" msprop:Generator_ColumnVarNameInTable="columncreation_time" msprop:Generator_ColumnPropNameInRow="creation_time" msprop:Generator_ColumnPropNameInTable="creation_timeColumn" msprop:Generator_UserColumnName="creation_time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="end_time" msprop:Generator_ColumnVarNameInTable="columnend_time" msprop:Generator_ColumnPropNameInRow="end_time" msprop:Generator_ColumnPropNameInTable="end_timeColumn" msprop:Generator_UserColumnName="end_time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="last_invoked" msprop:Generator_ColumnVarNameInTable="columnlast_invoked" msprop:Generator_ColumnPropNameInRow="last_invoked" msprop:Generator_ColumnPropNameInTable="last_invokedColumn" msprop:Generator_UserColumnName="last_invoked" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="failure_reason" msprop:Generator_ColumnVarNameInTable="columnfailure_reason" msprop:Generator_ColumnPropNameInRow="failure_reason" msprop:Generator_ColumnPropNameInTable="failure_reasonColumn" msprop:Generator_UserColumnName="failure_reason" type="xs:string" minOccurs="0" />
+              <xs:element name="package_size" msprop:Generator_ColumnVarNameInTable="columnpackage_size" msprop:Generator_ColumnPropNameInRow="package_size" msprop:Generator_ColumnPropNameInTable="package_sizeColumn" msprop:Generator_UserColumnName="package_size" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bytes_uploaded" msprop:Generator_ColumnVarNameInTable="columnbytes_uploaded" msprop:Generator_ColumnPropNameInRow="bytes_uploaded" msprop:Generator_ColumnPropNameInTable="bytes_uploadedColumn" msprop:Generator_UserColumnName="bytes_uploaded" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetDeadAtm" targetNamespace="http://tempuri.org/DataSetDeadAtm.xsd" xmlns:mstns="http://tempuri.org/DataSetDeadAtm.xsd" xmlns="http://tempuri.org/DataSetDeadAtm.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetDeadAtm" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetDeadAtm" msprop:Generator_UserDSName="DataSetDeadAtm">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtDeadATMs" msprop:Generator_TableClassName="dtDeadATMsDataTable" msprop:Generator_TableVarName="tabledtDeadATMs" msprop:Generator_TablePropName="dtDeadATMs" msprop:Generator_RowDeletingName="dtDeadATMsRowDeleting" msprop:Generator_RowChangingName="dtDeadATMsRowChanging" msprop:Generator_RowEvHandlerName="dtDeadATMsRowChangeEventHandler" msprop:Generator_RowDeletedName="dtDeadATMsRowDeleted" msprop:Generator_UserTableName="dtDeadATMs" msprop:Generator_RowChangedName="dtDeadATMsRowChanged" msprop:Generator_RowEvArgName="dtDeadATMsRowChangeEvent" msprop:Generator_RowClassName="dtDeadATMsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="heart_beat_received_at" msprop:Generator_ColumnVarNameInTable="columnheart_beat_received_at" msprop:Generator_ColumnPropNameInRow="heart_beat_received_at" msprop:Generator_ColumnPropNameInTable="heart_beat_received_atColumn" msprop:Generator_UserColumnName="heart_beat_received_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+              <xs:element name="last_telnet_status" msprop:Generator_ColumnVarNameInTable="columnlast_telnet_status" msprop:Generator_ColumnPropNameInRow="last_telnet_status" msprop:Generator_ColumnPropNameInTable="last_telnet_statusColumn" msprop:Generator_UserColumnName="last_telnet_status" type="xs:string" minOccurs="0" />
+              <xs:element name="last_telnet_executed_at" msprop:Generator_ColumnVarNameInTable="columnlast_telnet_executed_at" msprop:Generator_ColumnPropNameInRow="last_telnet_executed_at" msprop:Generator_ColumnPropNameInTable="last_telnet_executed_atColumn" msprop:Generator_UserColumnName="last_telnet_executed_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="last_ping_status" msprop:Generator_ColumnVarNameInTable="columnlast_ping_status" msprop:Generator_ColumnPropNameInRow="last_ping_status" msprop:Generator_ColumnPropNameInTable="last_ping_statusColumn" msprop:Generator_UserColumnName="last_ping_status" type="xs:string" minOccurs="0" />
+              <xs:element name="last_ping_executed_at" msprop:Generator_ColumnVarNameInTable="columnlast_ping_executed_at" msprop:Generator_ColumnPropNameInRow="last_ping_executed_at" msprop:Generator_ColumnPropNameInTable="last_ping_executed_atColumn" msprop:Generator_UserColumnName="last_ping_executed_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" msprop:Generator_UserColumnName="region_id" type="xs:string" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" msprop:Generator_UserColumnName="parent_region_id" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

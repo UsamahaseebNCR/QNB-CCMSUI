@@ -1,0 +1,4 @@
+﻿<items>
+  <item Text="Delete" Look-LeftIconUrl="delete.gif" Id="region-delete"    
+          />
+</items>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsSuspiciousReplenishmentRpt" targetNamespace="http://tempuri.org/DsSuspiciousReplenishmentRpt.xsd" xmlns:mstns="http://tempuri.org/DsSuspiciousReplenishmentRpt.xsd" xmlns="http://tempuri.org/DsSuspiciousReplenishmentRpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsSuspiciousReplenishmentRpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DsSuspiciousReplenishmentRpt" msprop:Generator_UserDSName="DsSuspiciousReplenishmentRpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SuspiciousReplenishment" msprop:Generator_UserTableName="SuspiciousReplenishment" msprop:Generator_RowEvArgName="SuspiciousReplenishmentRowChangeEvent" msprop:Generator_TableVarName="tableSuspiciousReplenishment" msprop:Generator_TablePropName="SuspiciousReplenishment" msprop:Generator_RowDeletingName="SuspiciousReplenishmentRowDeleting" msprop:Generator_RowChangingName="SuspiciousReplenishmentRowChanging" msprop:Generator_RowDeletedName="SuspiciousReplenishmentRowDeleted" msprop:Generator_RowEvHandlerName="SuspiciousReplenishmentRowChangeEventHandler" msprop:Generator_TableClassName="SuspiciousReplenishmentDataTable" msprop:Generator_RowChangedName="SuspiciousReplenishmentRowChanged" msprop:Generator_RowClassName="SuspiciousReplenishmentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="ip" msprop:Generator_ColumnVarNameInTable="columnip" msprop:Generator_ColumnPropNameInRow="ip" msprop:Generator_ColumnPropNameInTable="ipColumn" msprop:Generator_UserColumnName="ip" type="xs:string" minOccurs="0" />
+              <xs:element name="rep_datetime" msprop:Generator_ColumnVarNameInTable="columnrep_datetime" msprop:Generator_ColumnPropNameInRow="rep_datetime" msprop:Generator_ColumnPropNameInTable="rep_datetimeColumn" msprop:Generator_UserColumnName="rep_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="reason" msprop:Generator_ColumnVarNameInTable="columnreason" msprop:Generator_ColumnPropNameInRow="reason" msprop:Generator_ColumnPropNameInTable="reasonColumn" msprop:Generator_UserColumnName="reason" type="xs:string" minOccurs="0" />
+              <xs:element name="total_rep" msprop:Generator_ColumnVarNameInTable="columntotal_rep" msprop:Generator_ColumnPropNameInRow="total_rep" msprop:Generator_ColumnPropNameInTable="total_repColumn" msprop:Generator_UserColumnName="total_rep" type="xs:int" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_logo" msprop:Generator_ColumnVarNameInTable="columnbank_logo" msprop:Generator_ColumnPropNameInRow="bank_logo" msprop:Generator_ColumnPropNameInTable="bank_logoColumn" msprop:Generator_UserColumnName="bank_logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="cash_added1" msprop:Generator_ColumnVarNameInTable="columncash_added1" msprop:Generator_ColumnPropNameInRow="cash_added1" msprop:Generator_ColumnPropNameInTable="cash_added1Column" msprop:Generator_UserColumnName="cash_added1" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added2" msprop:Generator_ColumnVarNameInTable="columncash_added2" msprop:Generator_ColumnPropNameInRow="cash_added2" msprop:Generator_ColumnPropNameInTable="cash_added2Column" msprop:Generator_UserColumnName="cash_added2" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added3" msprop:Generator_ColumnVarNameInTable="columncash_added3" msprop:Generator_ColumnPropNameInRow="cash_added3" msprop:Generator_ColumnPropNameInTable="cash_added3Column" msprop:Generator_UserColumnName="cash_added3" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added4" msprop:Generator_ColumnVarNameInTable="columncash_added4" msprop:Generator_ColumnPropNameInRow="cash_added4" msprop:Generator_ColumnPropNameInTable="cash_added4Column" msprop:Generator_UserColumnName="cash_added4" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added5" msprop:Generator_ColumnVarNameInTable="columncash_added5" msprop:Generator_ColumnPropNameInRow="cash_added5" msprop:Generator_ColumnPropNameInTable="cash_added5Column" msprop:Generator_UserColumnName="cash_added5" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added6" msprop:Generator_ColumnVarNameInTable="columncash_added6" msprop:Generator_ColumnPropNameInRow="cash_added6" msprop:Generator_ColumnPropNameInTable="cash_added6Column" msprop:Generator_UserColumnName="cash_added6" type="xs:int" minOccurs="0" />
+              <xs:element name="cash_added7" msprop:Generator_ColumnVarNameInTable="columncash_added7" msprop:Generator_ColumnPropNameInRow="cash_added7" msprop:Generator_ColumnPropNameInTable="cash_added7Column" msprop:Generator_UserColumnName="cash_added7" type="xs:int" minOccurs="0" />
+              <xs:element name="is_swap" msprop:Generator_ColumnVarNameInTable="columnis_swap" msprop:Generator_ColumnPropNameInRow="is_swap" msprop:Generator_ColumnPropNameInTable="is_swapColumn" msprop:Generator_UserColumnName="is_swap" type="xs:boolean" minOccurs="0" />
+              <xs:element name="cash_order_id" msprop:Generator_ColumnVarNameInTable="columncash_order_id" msprop:Generator_ColumnPropNameInRow="cash_order_id" msprop:Generator_ColumnPropNameInTable="cash_order_idColumn" msprop:Generator_UserColumnName="cash_order_id" type="xs:int" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+              <xs:element name="cash_order_datetime" msprop:Generator_ColumnVarNameInTable="columncash_order_datetime" msprop:Generator_ColumnPropNameInRow="cash_order_datetime" msprop:Generator_ColumnPropNameInTable="cash_order_datetimeColumn" msprop:Generator_UserColumnName="cash_order_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cassette1_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette1_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette1_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette1_suggested_notesColumn" msprop:Generator_UserColumnName="cassette1_suggested_notes" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette2_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette2_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette2_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette2_suggested_notesColumn" msprop:Generator_UserColumnName="cassette2_suggested_notes" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette3_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette3_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette3_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette3_suggested_notesColumn" msprop:Generator_UserColumnName="cassette3_suggested_notes" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette4_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette4_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette4_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette4_suggested_notesColumn" msprop:Generator_UserColumnName="cassette4_suggested_notes" type="xs:int" minOccurs="0" />
+              <xs:element name="suggested_amount" msprop:Generator_ColumnVarNameInTable="columnsuggested_amount" msprop:Generator_ColumnPropNameInRow="suggested_amount" msprop:Generator_ColumnPropNameInTable="suggested_amountColumn" msprop:Generator_UserColumnName="suggested_amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="last_tsn" msprop:Generator_ColumnVarNameInTable="columnlast_tsn" msprop:Generator_ColumnPropNameInRow="last_tsn" msprop:Generator_ColumnPropNameInTable="last_tsnColumn" msprop:Generator_UserColumnName="last_tsn" type="xs:string" minOccurs="0" />
+              <xs:element name="total_text" msprop:Generator_ColumnVarNameInTable="columntotal_text" msprop:Generator_ColumnPropNameInRow="total_text" msprop:Generator_ColumnPropNameInTable="total_textColumn" msprop:Generator_UserColumnName="total_text" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

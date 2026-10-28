@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPNCNoteDepDetail" targetNamespace="http://tempuri.org/dsPNCNoteDepDetail.xsd" xmlns:mstns="http://tempuri.org/dsPNCNoteDepDetail.xsd" xmlns="http://tempuri.org/dsPNCNoteDepDetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPNCNoteDepDetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPNCNoteDepDetail" msprop:Generator_UserDSName="dsPNCNoteDepDetail">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="trxn_datetime" msprop:Generator_ColumnVarNameInTable="columntrxn_datetime" msprop:Generator_ColumnPropNameInRow="trxn_datetime" msprop:Generator_ColumnPropNameInTable="trxn_datetimeColumn" msprop:Generator_UserColumnName="trxn_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tsn" msprop:Generator_ColumnVarNameInTable="columntsn" msprop:Generator_ColumnPropNameInRow="tsn" msprop:Generator_ColumnPropNameInTable="tsnColumn" msprop:Generator_UserColumnName="tsn" type="xs:string" minOccurs="0" />
+              <xs:element name="pan" msprop:Generator_ColumnVarNameInTable="columnpan" msprop:Generator_ColumnPropNameInRow="pan" msprop:Generator_ColumnPropNameInTable="panColumn" msprop:Generator_UserColumnName="pan" type="xs:string" minOccurs="0" />
+              <xs:element name="detail" msprop:Generator_ColumnVarNameInTable="columndetail" msprop:Generator_ColumnPropNameInRow="detail" msprop:Generator_ColumnPropNameInTable="detailColumn" msprop:Generator_UserColumnName="detail" type="xs:string" minOccurs="0" />
+              <xs:element name="deposit_count" msprop:Generator_ColumnVarNameInTable="columndeposit_count" msprop:Generator_ColumnPropNameInRow="deposit_count" msprop:Generator_ColumnPropNameInTable="deposit_countColumn" msprop:Generator_UserColumnName="deposit_count" type="xs:int" minOccurs="0" />
+              <xs:element name="amount_authorized" msprop:Generator_ColumnVarNameInTable="columnamount_authorized" msprop:Generator_ColumnPropNameInRow="amount_authorized" msprop:Generator_ColumnPropNameInTable="amount_authorizedColumn" msprop:Generator_UserColumnName="amount_authorized" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dispute_status" msprop:Generator_ColumnVarNameInTable="columndispute_status" msprop:Generator_ColumnPropNameInRow="dispute_status" msprop:Generator_ColumnPropNameInTable="dispute_statusColumn" msprop:Generator_UserColumnName="dispute_status" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="comment" msprop:Generator_ColumnVarNameInTable="columncomment" msprop:Generator_ColumnPropNameInRow="comment" msprop:Generator_ColumnPropNameInTable="commentColumn" msprop:Generator_UserColumnName="comment" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

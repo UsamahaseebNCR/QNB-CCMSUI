@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsTerminalDowntimeRpt" targetNamespace="http://tempuri.org/DsTerminalDowntimeRpt.xsd" xmlns:mstns="http://tempuri.org/DsTerminalDowntimeRpt.xsd" xmlns="http://tempuri.org/DsTerminalDowntimeRpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsTerminalDowntimeRpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DsTerminalDowntimeRpt" msprop:Generator_UserDSName="DsTerminalDowntimeRpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TerminalDowntime" msprop:Generator_UserTableName="TerminalDowntime" msprop:Generator_RowEvArgName="TerminalDowntimeRowChangeEvent" msprop:Generator_TableVarName="tableTerminalDowntime" msprop:Generator_TablePropName="TerminalDowntime" msprop:Generator_RowDeletingName="TerminalDowntimeRowDeleting" msprop:Generator_RowChangingName="TerminalDowntimeRowChanging" msprop:Generator_RowDeletedName="TerminalDowntimeRowDeleted" msprop:Generator_TableClassName="TerminalDowntimeDataTable" msprop:Generator_RowChangedName="TerminalDowntimeRowChanged" msprop:Generator_RowEvHandlerName="TerminalDowntimeRowChangeEventHandler" msprop:Generator_RowClassName="TerminalDowntimeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="ip" msprop:Generator_ColumnVarNameInTable="columnip" msprop:Generator_ColumnPropNameInRow="ip" msprop:Generator_ColumnPropNameInTable="ipColumn" msprop:Generator_UserColumnName="ip" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="generated_at" msprop:Generator_ColumnVarNameInTable="columngenerated_at" msprop:Generator_ColumnPropNameInRow="generated_at" msprop:Generator_ColumnPropNameInTable="generated_atColumn" msprop:Generator_UserColumnName="generated_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="resolve_at" msprop:Generator_ColumnVarNameInTable="columnresolve_at" msprop:Generator_ColumnPropNameInRow="resolve_at" msprop:Generator_ColumnPropNameInTable="resolve_atColumn" msprop:Generator_UserColumnName="resolve_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="downtime" msprop:Generator_ColumnVarNameInTable="columndowntime" msprop:Generator_ColumnPropNameInRow="downtime" msprop:Generator_ColumnPropNameInTable="downtimeColumn" msprop:Generator_UserColumnName="downtime" type="xs:int" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_logo" msprop:Generator_ColumnVarNameInTable="columnbank_logo" msprop:Generator_ColumnPropNameInRow="bank_logo" msprop:Generator_ColumnPropNameInTable="bank_logoColumn" msprop:Generator_UserColumnName="bank_logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" msprop:Generator_UserColumnName="region_id" type="xs:int" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" msprop:Generator_UserColumnName="parent_region_id" type="xs:int" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_UserColumnName="location" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

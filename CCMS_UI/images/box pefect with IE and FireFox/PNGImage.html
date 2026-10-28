@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<SCRIPT>
+function fixPNG(myImage)
+{
+
+
+	var imgID = (myImage.id) ? "id='" + myImage.id + "' " : ""
+	var imgClass = (myImage.className) ? "class='" + myImage.className + "' " : ""
+	var imgTitle = (myImage.title) ? "title='" + myImage.title  + "' " : "title='" + myImage.alt + "' "
+	var imgStyle = "display:inline-block;" + myImage.style.cssText
+	var strNewHTML = "<span " + imgID + imgClass + imgTitle
+                  + " style=\"" + "width:" + myImage.width
+                  + "px; height:" + myImage.height
+                  + "px;" + imgStyle + ";"
+                  + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+                  + "(src=\'" + myImage.src + "\', sizingMethod='scale');\"></span>"
+	myImage.outerHTML = strNewHTML
+	//alert(strNewHTML);
+ }
+
+</SCRIPT>
+<style type="text/css">
+<!--
+.imagelinkcursor {cursor:pointer;
+}
+body {
+	background-color: #FF0000;
+}
+.style1 {
+	color: #FFFFFF;
+	font-size: 18px;
+}
+-->
+</style>
+</head>
+
+<body>
+<p><a href="http://aamir/avanza" ><img src="radar.png" alt="click here to open page" width="128" height="128" border="0" class="imagelinkcursor"  onload="fixPNG(this);" /></a></p>
+<p>&nbsp;</p>
+<p class="style1">This work perfectly Transparent image in </p>
+<p class="style1">a) IE6 or higher<br />
+b) FireFox</p>
+<p class="style1">It does not work with </p>
+<p class="style1">Google Chrome</p>
+</body>
+</html>

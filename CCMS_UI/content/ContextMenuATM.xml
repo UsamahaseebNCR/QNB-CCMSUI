@@ -1,0 +1,19 @@
+﻿<items >
+  <item Text="Reports" Look-LeftIconUrl="report.gif" Look-RightIconUrl="arrow_right.gif" Look-HoverRightIconUrl="arrow_right_hover.gif" Look-RightIconWidth="5" >
+    <item Text="EJ Download Report" Value="ij/FileDownlaodReport.aspx"   Look-LeftIconUrl="report.gif"  Id="Report" />
+    <item Text="Transaction Summary Report" Value="ij/TransactionReport.aspx"  Look-LeftIconUrl="report.gif" Id="Report"/>
+    <item Text="Monthly Transaction Report" Value="ij/MonthlyTransactionReport.aspx"  Look-LeftIconUrl="report.gif" Id="Report"/>
+    <item Text="Member Bank Transaction Report" Value="ij/MemberBankTransactionReport.aspx"  Look-LeftIconUrl="report.gif" Id="Report"/>
+    <item Text="Card Capture Report" Value="ij/CardCaptureReport.aspx"  Look-LeftIconUrl="report.gif" Id="Report"/>
+    <!--    <item Text="Replenishment " Look-LeftIconUrl="report.gif" Id="ejCardReplenishment"/>-->
+  </item>
+  <!--
+  <item LookId="BreakItem" AutoPostBackOnSelect="false" />
+  <item Text="Open" Look-LeftIconUrl="icon_open.gif" Look-HoverLeftIconUrl="icon_open_over.gif" />
+  <item Text="Copy Contacts" Look-LeftIconUrl="icon_copy.gif" Look-HoverLeftIconUrl="icon_copy_over.gif" />
+  <item Text="Move Contacts" />
+  <item LookId="BreakItem" AutoPostBackOnSelect="false" />
+  <item Text="Add to Favorites " Look-LeftIconUrl="icon_properties.gif" Look-HoverLeftIconUrl="icon_properties_over.gif" />
+  <item Text="Properties"/>
+  -->
+</items>

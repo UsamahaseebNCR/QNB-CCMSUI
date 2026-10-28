@@ -1,0 +1,571 @@
+BODY
+{
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+.PageLayoutClass
+{
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	width: 100%;
+}
+
+.PageHeadingGradientClass
+{
+	background-image: url(../images/serachheadgradient.jpg);
+	background-repeat: repeat-x;
+}
+
+.PageHeadingTextClass
+{
+	width: 100%;
+	font-family: Arial;
+	font-size: 13px;
+	color: Black;
+	text-align: center;
+	font-weight: bold;
+	background-color: #dcdcdc;
+	border-bottom: solid 1px #a9a9a9;
+	border-left: solid 1px #a9a9a9;
+	border-right: solid 1px #a9a9a9;
+	height: 18px;
+}
+
+.ValidationTextClass
+{
+	width: 100%;
+	font-family: Verdana;
+	font-size: 11px;
+	color: Red;
+	text-align: center;
+}
+
+.ConfirmationTextClass
+{
+	width: 100%;
+	font-family: Verdana;
+	font-size: 11px;
+	color: Navy;
+	text-align: center;
+}
+
+.SearchFiltersPaneClass
+{
+	width: 60%;
+	text-align: left;
+	padding-left: 2px;
+	vertical-align: top;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+}
+.SearchFiltersPaneClasstbl
+{
+	width: 60%;
+	text-align: left;
+	padding-left: 2px;
+	vertical-align: top;
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+.SearchButtonsPaneClass
+{
+	width: 40%;
+	text-align: right;
+	padding-right: 2px;
+	vertical-align: bottom;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	
+}
+
+.SearchPaneImageClass
+{
+	height:35px;
+	width:30px;
+	
+}
+
+.TextBoxClass
+{
+	color: #000000;
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	height: 15px;
+	width: 115px;
+}
+
+.TextBoxLargeClass
+{
+	color: #000000;
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	height: 15px;
+	width: 135px;
+}
+
+.DropDownBoxClass
+{
+	color: #000000;
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	height: 18px;
+	width: 120px;
+}
+
+.CheckBoxListClass
+{
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	font-weight: normal;
+	width: 100%;
+}
+
+.CalenderClass
+{
+	color: #000000;
+	border: 0;
+	font-family: Verdana;
+	font-size: 10px;
+	height: 15px;
+	vertical-align: middle;
+	cursor: hand;
+}
+
+.CheckBoxClass
+{
+	color: #000000;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	height: 15px;
+	width: 70px;
+}
+.CheckBoxClass *
+{
+    	vertical-align: middle;
+}
+
+.ButtonClass
+{
+	color: #ffffff;
+	border: solid 1px #d3d3d3;
+	background-color: #000000;
+	background-image: url( '../images/headbg.jpg' );
+	background-repeat: repeat-x;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	vertical-align: middle;
+	height: 18px;
+	width: 70px;
+}
+
+.ButtonClassbottom
+{
+	color: #ffffff;
+	border: solid 1px #d3d3d3;
+	background-color: #000000;
+	background-image: url( '../images/headbg.jpg' );
+	background-repeat: repeat-x;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	vertical-align: bottom;
+	height: 18px;
+	width: 70px;
+}
+
+.HyperlinkClass
+{
+	color: Blue;
+	font-weight: normal;
+}
+
+.ImageButtonClass
+{
+	cursor: hand;
+	border: 0;
+}
+
+.GridRecordsCountClass
+{
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	background-color: #d3d3d3;
+	border: solid 1px #a9a9a9;
+	height: 15px;
+	width: 100%;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.GridHeadingCellClass
+{
+	background-image: url( '../images/headbg.jpg' );
+	border: solid 1px #d3d3d3;
+	height: 20px;
+	vertical-align: middle;
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: White;
+	padding: 2px;
+}
+
+.GridRowCellLeftAlignedClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	color: #000000;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: pre-wrap;
+}
+
+.GridRowCellRightAlignedClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	color: #000000;
+	text-align: right;
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: pre-wrap;
+}
+
+.GridRowCellNoWrapClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	color: #000000;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.GridRowCellCenteredClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	color: Black;
+	text-align: center;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.GridEmptyRowClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	color: #000000;
+	background-color: #ffffff;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.GridFooterCellClass
+{
+	border: solid 1px #d3d3d3;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	vertical-align: middle;
+	color: #000000;
+	background-color: #ffffff;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+/*************** Component Art Grid *****************/
+
+
+.Grid
+{
+	background-color: #FFFFFF;
+	cursor: pointer;
+}
+
+
+.HeadingCellText
+{
+	padding-left: 5px;
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #ffffff;
+}
+.HeadingCell
+{
+	background-image: url(../images/headbg.jpg);
+	height: 25px;
+	border-bottom: #c9c9c9 1px solid;
+	border-right: #c9c9c9 1px solid;
+	border-left: #c9c9c9 1px solid;
+	color: #ffffff;
+}
+.SortingColumn
+{
+	cursor: hand;
+}
+
+.Row
+{
+	background-color: #ffffff;
+	cursor: default;
+	border-bottom: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	width: 100%;
+}
+
+.PaddedCell
+{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.RowCell
+{
+	background-color: #ffffff;
+	border-bottom: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+}
+
+.Row td.DataCell
+{
+	padding-left: 5px; /*border-right: 1px solid #c9c9c9;*/
+	border-bottom: 1px solid #BFDBF5;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+}
+
+.Row td.LastDataCell
+{
+	background-color: #EFEFF4;
+}
+
+.AlternatingRow
+{
+	background-color: #ffffff;
+	cursor: default;
+}
+
+.AlternatingRow td.DataCell
+{
+	padding-left: 5px; /*border-right: 1px solid #c9c9c9;*/
+	border-bottom: 1px solid #BFDBF5;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+}
+
+.GridFooter
+{
+	cursor: default;
+	vertical-align: bottom;
+}
+
+.GridFooter a
+{
+	font-family: verdana;
+	color: #4e4e4e;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.GridFooterText
+{
+	color: #4e4e4e;
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.CellText
+{
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: #4e4e4e;
+}
+TD
+{
+	font-size: 10px;
+	font-family: Verdana;
+	color: #000000;
+}
+
+.SelectedRow
+{
+	background-image: url(../images/gridimages/grid_selected_item_bg.gif);
+}
+
+.SelectedRow td.DataCell
+{
+	background-image: url(../images/gridimages/grid_selected_item_bg.gif);
+	padding-left: 5px; /*border-right: 1px solid #c9c9c9;*/ /*border-bottom: 1px solid #c9c9c9;*/
+	font-family: Arial;
+	font-size: 11px;
+	cursor: default;
+	color: #000000;
+	border-bottom: 1px solid #BFDBF5;
+}
+
+.SelectedRow td.FirstDataCell
+{
+	border-left: 1px solid #4B4B6F;
+	border-right: 0px;
+	padding-left: 2px;
+	padding-right: 3px;
+}
+
+.SelectedRow td.LastDataCell
+{
+	border-right: 1px solid #4B4B6F;
+}
+
+.DialogHeaderClass
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: bold;
+	vertical-align: middle;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.popupDialogMask
+{
+	position: fixed !important;
+	top: 0px !important;
+	left: 0px !important;
+}
+
+.DialogContentHeadingCellClass
+{
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.DialogContentHeadingCellBorderedClass
+{
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	vertical-align: middle;
+	border-bottom: solid 1px #696969;
+	border-left: solid 1px #696969;
+}
+
+.DialogContentRowCellClass
+{
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.DialogContentRowCellBorderedClass
+{
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	vertical-align: middle;
+	border-bottom: solid 1px #696969;
+	border-left: solid 1px #696969;
+}
+
+.SeparatorClass
+{
+	border: solid 1px #000000;
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #a9a9a9;
+	height: 18px;
+	width: 100%;
+	text-align: center;
+}
+
+.DivClass
+{
+	width: 100%;
+	min-height: 10px;
+	max-height: 170px;
+	overflow: auto;
+}
+
+.SearchPaneGradientClass
+{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#fDfDfD' , endColorstr= '#A0A0A0' ); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(gray)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  rgba(253, 253, 253, 255),  rgba(160,160,160, 255)); /* for firefox 3.6+ */
+}
+
+.bold
+{
+    font-weight:bold;    
+}
+
+.statusIcon
+{
+    padding-left: 1px;
+    padding-right: 0px;
+}
+
+.spanDeviceStatus
+{
+color: white;
+background-color: black;
+display: -webkit-inline-box;
+height: 16px;
+padding: 3px 5px 1px 5px;
+}

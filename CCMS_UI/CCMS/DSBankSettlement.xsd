@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSBankSettlement" targetNamespace="http://tempuri.org/DSBankSettlement.xsd" xmlns:mstns="http://tempuri.org/DSBankSettlement.xsd" xmlns="http://tempuri.org/DSBankSettlement.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSBankSettlement" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSBankSettlement" msprop:Generator_UserDSName="DSBankSettlement">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="atm" msprop:Generator_ColumnVarNameInTable="columnatm" msprop:Generator_ColumnPropNameInRow="atm" msprop:Generator_ColumnPropNameInTable="atmColumn" msprop:Generator_UserColumnName="atm" type="xs:string" minOccurs="0" />
+              <xs:element name="cash_replenished" msprop:Generator_ColumnVarNameInTable="columncash_replenished" msprop:Generator_ColumnPropNameInRow="cash_replenished" msprop:Generator_ColumnPropNameInTable="cash_replenishedColumn" msprop:Generator_UserColumnName="cash_replenished" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cash_returned" msprop:Generator_ColumnVarNameInTable="columncash_returned" msprop:Generator_ColumnPropNameInRow="cash_returned" msprop:Generator_ColumnPropNameInTable="cash_returnedColumn" msprop:Generator_UserColumnName="cash_returned" type="xs:decimal" minOccurs="0" />
+              <xs:element name="variance" msprop:Generator_ColumnVarNameInTable="columnvariance" msprop:Generator_ColumnPropNameInRow="variance" msprop:Generator_ColumnPropNameInTable="varianceColumn" msprop:Generator_UserColumnName="variance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="no_of_replenishments" msprop:Generator_ColumnVarNameInTable="columnno_of_replenishments" msprop:Generator_ColumnPropNameInRow="no_of_replenishments" msprop:Generator_ColumnPropNameInTable="no_of_replenishmentsColumn" msprop:Generator_UserColumnName="no_of_replenishments" type="xs:int" minOccurs="0" />
+              <xs:element name="rep_datetime" msprop:Generator_ColumnVarNameInTable="columnrep_datetime" msprop:Generator_ColumnPropNameInRow="rep_datetime" msprop:Generator_ColumnPropNameInTable="rep_datetimeColumn" msprop:Generator_UserColumnName="rep_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="inventory" msprop:Generator_ColumnVarNameInTable="columninventory" msprop:Generator_ColumnPropNameInRow="inventory" msprop:Generator_ColumnPropNameInTable="inventoryColumn" msprop:Generator_UserColumnName="inventory" type="xs:string" minOccurs="0" />
+              <xs:element name="comments" msprop:Generator_ColumnVarNameInTable="columncomments" msprop:Generator_ColumnPropNameInRow="comments" msprop:Generator_ColumnPropNameInTable="commentsColumn" msprop:Generator_UserColumnName="comments" type="xs:string" minOccurs="0" />
+              <xs:element name="cit_atm_title" msprop:Generator_ColumnVarNameInTable="columncit_atm_title" msprop:Generator_ColumnPropNameInRow="cit_atm_title" msprop:Generator_ColumnPropNameInTable="cit_atm_titleColumn" msprop:Generator_UserColumnName="cit_atm_title" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEJSwitchHostTransactions" targetNamespace="http://tempuri.org/dsEJSwitchHostTransactions.xsd" xmlns:mstns="http://tempuri.org/dsEJSwitchHostTransactions.xsd" xmlns="http://tempuri.org/dsEJSwitchHostTransactions.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEJSwitchHostTransactions" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsEJSwitchHostTransactions" msprop:Generator_UserDSName="dsEJSwitchHostTransactions">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable_DispenseRecon" msprop:Generator_TableClassName="DataTable_DispenseReconDataTable" msprop:Generator_TableVarName="tableDataTable_DispenseRecon" msprop:Generator_TablePropName="DataTable_DispenseRecon" msprop:Generator_RowDeletingName="DataTable_DispenseReconRowDeleting" msprop:Generator_RowChangingName="DataTable_DispenseReconRowChanging" msprop:Generator_RowEvHandlerName="DataTable_DispenseReconRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_DispenseReconRowDeleted" msprop:Generator_UserTableName="DataTable_DispenseRecon" msprop:Generator_RowChangedName="DataTable_DispenseReconRowChanged" msprop:Generator_RowEvArgName="DataTable_DispenseReconRowChangeEvent" msprop:Generator_RowClassName="DataTable_DispenseReconRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="trxn_datetime" msprop:Generator_ColumnVarNameInTable="columntrxn_datetime" msprop:Generator_ColumnPropNameInRow="trxn_datetime" msprop:Generator_ColumnPropNameInTable="trxn_datetimeColumn" msprop:Generator_UserColumnName="trxn_datetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PAN" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
+              <xs:element name="tsn" msprop:Generator_ColumnVarNameInTable="columntsn" msprop:Generator_ColumnPropNameInRow="tsn" msprop:Generator_ColumnPropNameInTable="tsnColumn" msprop:Generator_UserColumnName="tsn" type="xs:string" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="reconciliation_transactions_id" msprop:Generator_ColumnVarNameInTable="columnreconciliation_transactions_id" msprop:Generator_ColumnPropNameInRow="reconciliation_transactions_id" msprop:Generator_ColumnPropNameInTable="reconciliation_transactions_idColumn" msprop:Generator_UserColumnName="reconciliation_transactions_id" type="xs:string" minOccurs="0" />
+              <xs:element name="reason" msprop:Generator_ColumnVarNameInTable="columnreason" msprop:Generator_ColumnPropNameInRow="reason" msprop:Generator_ColumnPropNameInTable="reasonColumn" msprop:Generator_UserColumnName="reason" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="status_on_ej" msprop:Generator_ColumnVarNameInTable="columnstatus_on_ej" msprop:Generator_ColumnPropNameInRow="status_on_ej" msprop:Generator_ColumnPropNameInTable="status_on_ejColumn" msprop:Generator_UserColumnName="status_on_ej" type="xs:string" minOccurs="0" />
+              <xs:element name="status_on_switch" msprop:Generator_ColumnVarNameInTable="columnstatus_on_switch" msprop:Generator_ColumnPropNameInRow="status_on_switch" msprop:Generator_ColumnPropNameInTable="status_on_switchColumn" msprop:Generator_UserColumnName="status_on_switch" type="xs:string" minOccurs="0" />
+              <xs:element name="status_on_host" msprop:Generator_ColumnVarNameInTable="columnstatus_on_host" msprop:Generator_ColumnPropNameInRow="status_on_host" msprop:Generator_ColumnPropNameInTable="status_on_hostColumn" msprop:Generator_UserColumnName="status_on_host" type="xs:string" minOccurs="0" />
+              <xs:element name="accountno" msprop:Generator_ColumnVarNameInTable="columnaccountno" msprop:Generator_ColumnPropNameInRow="accountno" msprop:Generator_ColumnPropNameInTable="accountnoColumn" msprop:Generator_UserColumnName="accountno" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

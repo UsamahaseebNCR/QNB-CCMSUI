@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>PNG in HTML</title>
+
+
+
+<style type="text/css">
+
+.imagelinkcursor{
+cursor:pointer;
+}
+
+.boxlefttop{
+
+	background: url("box_headleft.png") no-repeat left top;
+	#background: none;
+	#filter:progid:DXimageTransform.Microsoft.AlphaimageLoader(src='box_headleft.png', sizingMethod='scale');
+	width:8px;
+	height:29px;
+
+}
+
+.boxtopmiddle{
+	background: url("box_headmiddlebg.png") ;
+	#background: none;
+	#filter:progid:DXimageTransform.Microsoft.AlphaimageLoader(src='box_headmiddlebg.png', sizingMethod='scale');
+
+
+
+}
+
+.boxrighttop{
+	background: url("box_headright.png") no-repeat right top;
+	#background: none;
+	#filter:progid:DXimageTransform.Microsoft.AlphaimageLoader(src='box_headright.png', sizingMethod='scale');
+	width:8px;
+
+}
+
+
+
+ .textwhitehead{
+ font-family:tahoma;
+	font-size:11px;
+	font-weight:bold;
+	color:#ffffff;
+	vertical-align:top;
+
+
+ }
+ .outerbg
+ {
+ background-color:#e4ebf0;
+ border-left: 1px solid #7394aa;
+  border-right: 1px solid #7394aa;
+   border-bottom: 1px solid #7394aa;
+
+   vertical-align:top;
+
+
+ }
+.innerbg
+ {
+ background-color:#ff0000;
+ border : 1px solid #acc1ce;
+
+
+
+ }
+
+
+body {
+	background-image: url(bgimage.jpg);
+	width:100%;
+	height:100%;
+	
+}
+
+.test_img{
+	background: url("test.png") no-repeat;
+	#background: none;
+	#filter:progid:DXimageTransform.Microsoft.AlphaimageLoader(src='test.png', sizingMethod='scale');
+	width: 128px;
+	height: 128px;
+	cursor: pointer;
+}
+
+</style>
+<SCRIPT>
+function fixPNG(myImage)
+{
+
+
+	var imgID = (myImage.id) ? "id='" + myImage.id + "' " : ""
+	var imgClass = (myImage.className) ? "class='" + myImage.className + "' " : ""
+	var imgTitle = (myImage.title) ? "title='" + myImage.title  + "' " : "title='" + myImage.alt + "' "
+	var imgStyle = "display:inline-block;" + myImage.style.cssText
+	var strNewHTML = "<span " + imgID + imgClass + imgTitle
+                  + " style=\"" + "width:" + myImage.width
+                  + "px; height:" + myImage.height
+                  + "px;" + imgStyle + ";"
+                  + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+                  + "(src=\'" + myImage.src + "\', sizingMethod='scale');\"></span>"
+	myImage.outerHTML = strNewHTML
+	//alert(strNewHTML);
+ }
+
+</SCRIPT>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body      leftmargin="0" topmargin="0">
+<br>
+<br>
+<table width="300" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td   align="left" valign="top"><Table width="100%" border=0 cellpadding="0" cellspacing="0" >
+      <tr >
+        <td          class="boxlefttop" ></td>
+        <td colspan="3" align="left"     class="boxtopmiddle" ><span class="textwhitehead">News and Events </span></td>
+        <td     class="boxrighttop"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" bgcolor="#FF0000"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="outerbg">
+      <tr>
+        <td colspan="3"><table width="100" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>&nbsp;</td>
+            <td>Tab 1 </td>
+            <td>Tab2</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="3" align="left" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" class="innerbg">
+          <tr>
+            <td width="2%" height="72">&nbsp;</td>
+            <td width="96%" height="28">All Are Class base as a BG image you have to define width and height and class name to each td. if you use image in class you must have to bound it in div </td>
+            <td width="2%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td align="right"><a href="http://www.avanzasolutions.com" target="_blank"><div class="test_img"></div></a></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td align="right"><a href="http://www.avanzasolutions.com" target="_blank">Read More </a></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td align="right">	<a href="http://aamir/avanza" >Using Fix PNG IMG SRC and apply imagelinkcursor for cursor hand <img src="radar.png" alt="click here to open page" width="128" height="128" border="0" class="imagelinkcursor"  onload="fixPNG(this);"></a></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="3" height="5px"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsExceptionHandling" targetNamespace="http://tempuri.org/dsExceptionHandling.xsd" xmlns:mstns="http://tempuri.org/dsExceptionHandling.xsd" xmlns="http://tempuri.org/dsExceptionHandling.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsExceptionHandling" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsExceptionHandling" msprop:Generator_UserDSName="dsExceptionHandling">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" type="xs:string" minOccurs="0" />
+              <xs:element name="transaction_rule_friendly_name" msprop:Generator_ColumnVarNameInTable="columntransaction_rule_friendly_name" msprop:Generator_ColumnPropNameInRow="transaction_rule_friendly_name" msprop:Generator_ColumnPropNameInTable="transaction_rule_friendly_nameColumn" msprop:Generator_UserColumnName="transaction_rule_friendly_name" type="xs:string" minOccurs="0" />
+              <xs:element name="trxn_datetime" msprop:Generator_ColumnVarNameInTable="columntrxn_datetime" msprop:Generator_ColumnPropNameInRow="trxn_datetime" msprop:Generator_ColumnPropNameInTable="trxn_datetimeColumn" msprop:Generator_UserColumnName="trxn_datetime" type="xs:string" minOccurs="0" />
+              <xs:element name="pan" msprop:Generator_ColumnVarNameInTable="columnpan" msprop:Generator_ColumnPropNameInRow="pan" msprop:Generator_ColumnPropNameInTable="panColumn" msprop:Generator_UserColumnName="pan" type="xs:string" minOccurs="0" />
+              <xs:element name="tsn" msprop:Generator_ColumnVarNameInTable="columntsn" msprop:Generator_ColumnPropNameInRow="tsn" msprop:Generator_ColumnPropNameInTable="tsnColumn" msprop:Generator_UserColumnName="tsn" type="xs:string" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:string" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:string" minOccurs="0" />
+              <xs:element name="comment_text" msprop:Generator_ColumnVarNameInTable="columncomment_text" msprop:Generator_ColumnPropNameInRow="comment_text" msprop:Generator_ColumnPropNameInTable="comment_textColumn" msprop:Generator_UserColumnName="comment_text" type="xs:string" minOccurs="0" />
+              <xs:element name="trxn_status" msprop:Generator_ColumnVarNameInTable="columntrxn_status" msprop:Generator_ColumnPropNameInRow="trxn_status" msprop:Generator_ColumnPropNameInTable="trxn_statusColumn" msprop:Generator_UserColumnName="trxn_status" type="xs:string" minOccurs="0" />
+              <xs:element name="comments" msprop:Generator_ColumnVarNameInTable="columncomments" msprop:Generator_ColumnPropNameInRow="comments" msprop:Generator_ColumnPropNameInTable="commentsColumn" msprop:Generator_UserColumnName="comments" type="xs:string" minOccurs="0" />
+              <xs:element name="organization" msprop:Generator_ColumnVarNameInTable="columnorganization" msprop:Generator_ColumnPropNameInRow="organization" msprop:Generator_ColumnPropNameInTable="organizationColumn" msprop:Generator_UserColumnName="organization" type="xs:string" minOccurs="0" />
+              <xs:element name="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" msprop:Generator_UserColumnName="region_id" type="xs:string" minOccurs="0" />
+              <xs:element name="parent_region_id" msprop:Generator_ColumnVarNameInTable="columnparent_region_id" msprop:Generator_ColumnPropNameInRow="parent_region_id" msprop:Generator_ColumnPropNameInTable="parent_region_idColumn" msprop:Generator_UserColumnName="parent_region_id" type="xs:string" minOccurs="0" />
+              <xs:element name="region_name" msprop:Generator_ColumnVarNameInTable="columnregion_name" msprop:Generator_ColumnPropNameInRow="region_name" msprop:Generator_ColumnPropNameInTable="region_nameColumn" msprop:Generator_UserColumnName="region_name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

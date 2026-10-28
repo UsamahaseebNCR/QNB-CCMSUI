@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsExportCashorder" targetNamespace="http://tempuri.org/dsExportCashorder.xsd" xmlns:mstns="http://tempuri.org/dsExportCashorder.xsd" xmlns="http://tempuri.org/dsExportCashorder.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsExportCashorder" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsExportCashorder" msprop:Generator_DataSetName="dsExportCashorder">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="bank_cash_center_id" msprop:Generator_UserColumnName="bank_cash_center_id" msprop:Generator_ColumnPropNameInRow="bank_cash_center_id" msprop:Generator_ColumnVarNameInTable="columnbank_cash_center_id" msprop:Generator_ColumnPropNameInTable="bank_cash_center_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="depot_id" msprop:Generator_UserColumnName="depot_id" msprop:Generator_ColumnPropNameInRow="depot_id" msprop:Generator_ColumnVarNameInTable="columndepot_id" msprop:Generator_ColumnPropNameInTable="depot_idColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="title" msprop:Generator_UserColumnName="title" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInTable="titleColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="location" msprop:Generator_UserColumnName="location" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInTable="locationColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="address1" msprop:Generator_UserColumnName="address1" msprop:Generator_ColumnPropNameInRow="address1" msprop:Generator_ColumnVarNameInTable="columnaddress1" msprop:Generator_ColumnPropNameInTable="address1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="city" msprop:Generator_UserColumnName="city" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInTable="cityColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="cash_order_datetime" msprop:Generator_UserColumnName="cash_order_datetime" msprop:Generator_ColumnPropNameInRow="cash_order_datetime" msprop:Generator_ColumnVarNameInTable="columncash_order_datetime" msprop:Generator_ColumnPropNameInTable="cash_order_datetimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cassette1_denomination" msprop:Generator_UserColumnName="cassette1_denomination" msprop:Generator_ColumnPropNameInRow="cassette1_denomination" msprop:Generator_ColumnVarNameInTable="columncassette1_denomination" msprop:Generator_ColumnPropNameInTable="cassette1_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette1_suggested_notes" msprop:Generator_UserColumnName="cassette1_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette1_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette1_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette1_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette2_denomination" msprop:Generator_UserColumnName="cassette2_denomination" msprop:Generator_ColumnPropNameInRow="cassette2_denomination" msprop:Generator_ColumnVarNameInTable="columncassette2_denomination" msprop:Generator_ColumnPropNameInTable="cassette2_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette2_suggested_notes" msprop:Generator_UserColumnName="cassette2_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette2_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette2_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette2_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette3_denomination" msprop:Generator_UserColumnName="cassette3_denomination" msprop:Generator_ColumnPropNameInRow="cassette3_denomination" msprop:Generator_ColumnVarNameInTable="columncassette3_denomination" msprop:Generator_ColumnPropNameInTable="cassette3_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette3_suggested_notes" msprop:Generator_UserColumnName="cassette3_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette3_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette3_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette3_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette4_denomination" msprop:Generator_UserColumnName="cassette4_denomination" msprop:Generator_ColumnPropNameInRow="cassette4_denomination" msprop:Generator_ColumnVarNameInTable="columncassette4_denomination" msprop:Generator_ColumnPropNameInTable="cassette4_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette4_suggested_notes" msprop:Generator_UserColumnName="cassette4_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette4_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette4_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette4_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette5_denomination" msprop:Generator_UserColumnName="cassette5_denomination" msprop:Generator_ColumnPropNameInRow="cassette5_denomination" msprop:Generator_ColumnVarNameInTable="columncassette5_denomination" msprop:Generator_ColumnPropNameInTable="cassette5_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette5_suggested_notes" msprop:Generator_UserColumnName="cassette5_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette5_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette5_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette5_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette6_denomination" msprop:Generator_UserColumnName="cassette6_denomination" msprop:Generator_ColumnPropNameInRow="cassette6_denomination" msprop:Generator_ColumnVarNameInTable="columncassette6_denomination" msprop:Generator_ColumnPropNameInTable="cassette6_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette6_suggested_notes" msprop:Generator_UserColumnName="cassette6_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette6_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette6_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette6_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette7_denomination" msprop:Generator_UserColumnName="cassette7_denomination" msprop:Generator_ColumnPropNameInRow="cassette7_denomination" msprop:Generator_ColumnVarNameInTable="columncassette7_denomination" msprop:Generator_ColumnPropNameInTable="cassette7_denominationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cassette7_suggested_notes" msprop:Generator_UserColumnName="cassette7_suggested_notes" msprop:Generator_ColumnPropNameInRow="cassette7_suggested_notes" msprop:Generator_ColumnVarNameInTable="columncassette7_suggested_notes" msprop:Generator_ColumnPropNameInTable="cassette7_suggested_notesColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_UserColumnName="total" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInTable="totalColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TablePropName="DataTable2" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="logo" msprop:Generator_UserColumnName="logo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInTable="logoColumn" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

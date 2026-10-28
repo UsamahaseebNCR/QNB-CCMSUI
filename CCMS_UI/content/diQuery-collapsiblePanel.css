@@ -1,0 +1,25 @@
+.collapsibleContainer
+{
+font-family: Verdana;
+font-size: 10px;
+}
+
+.collapsibleContainerTitle
+{
+    cursor:pointer;
+}
+
+.collapsibleContainerTitle div
+{
+    padding-top:3px;
+    padding-left:10px;
+    padding-bottom:3px;
+    background-color: lightGrey;
+    border: solid 1px darkGray;
+    font-weight: bold;
+}
+
+.collapsibleContainerContent
+{
+    padding: 10px;
+}

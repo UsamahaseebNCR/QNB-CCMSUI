@@ -1,0 +1,856 @@
+<%@ Page AutoEventWireup="true" CodeBehind="ReportList.aspx.cs" Inherits="CCMSUI.CCMS.ReportList" EnableViewState="false" 
+    Language="C#" %>
+
+<%@ Register Assembly="ComponentArt.Web.UI" Namespace="ComponentArt.Web.UI" TagPrefix="ComponentArt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <script src="../content/shortcut.js" type="text/javascript" language="javascript">
+    </script>
+    <title>Report List</title>
+    <link href="../content/iSuite.css" rel="stylesheet" />
+</head>
+<body onkeydown='checkForCtrlKey(window.event);' onkeyup='checkForCharKey(window.event)'
+    onload="hideProgressBar();">
+    <form id="frmReportList" runat="server">
+    <%--<div>--%>
+    <%-- <table id="table2" cellspacing="0" cellpadding="0" width="100%" border="0" style="padding-left: 2px">
+                <tr>
+                    <td class="PageHeading" align="left" colspan="2">
+                        Reports List
+                    </td>
+                </tr>
+                <tr>
+                    <td class="SearchHeadPaneGradient" colspan="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 40px">
+                        Please select Report to generate
+                    </td>
+                </tr>
+    --%>
+    <div>
+        <div class="PageHeading">
+            <div style="padding-top: 5px;">
+                Please select your option
+            </div>
+        </div>
+        <br />
+        <div class="cart-tabstrip-outer-wrapper" id="container" runat="server">
+            <div class="cart-tabstrip-inner-wrapper">
+                <ComponentArt:TabStrip ID="TabStrip_Operations" ScrollingEnabled="true" ScrollLeftLookId="ScrollItem"
+                    EnableTheming="true" ScrollRightLookId="ScrollItem" CssClass="TopGroup" DefaultItemLookId="DefaultTabLook"
+                    DefaultSelectedItemLookId="SelectedTabLook" DefaultDisabledItemLookId="DisabledTabLook"
+                    DefaultGroupTabSpacing="1px" ImagesBaseUrl="../images/Tabimages/" MultiPageId="MultiPage_Operations"
+                    Width="100%" runat="server">
+                    <ItemLooks>
+                        <%-- <ComponentArt:ItemLook LookId="ScrollItem" CssClass="ScrollItem" HoverCssClass="ScrollItemHover"
+                                                LabelPaddingLeft="5" LabelPaddingRight="5" LabelPaddingTop="0" LabelPaddingBottom="0" />--%>
+                        <ComponentArt:ItemLook LookId="DefaultTabLook" CssClass="DefaultTab" HoverCssClass="DefaultTabHover"
+                            LabelPaddingLeft="10px" LabelPaddingRight="10px" LabelPaddingTop="5px" LabelPaddingBottom="4px"
+                            LeftIconUrl="tab_left_icon.gif" RightIconUrl="tab_right_icon.gif" HoverLeftIconUrl="hover_tab_left_icon.gif"
+                            HoverRightIconUrl="hover_tab_right_icon.gif" LeftIconWidth="3px" LeftIconHeight="21px"
+                            RightIconWidth="3px" RightIconHeight="21px" LeftIconVisibility="Always" RightIconVisibility="Always" />
+                        <ComponentArt:ItemLook LookId="SelectedTabLook" CssClass="SelectedReportsTab" LabelPaddingLeft="10px"
+                            LabelPaddingRight="10px" LabelPaddingTop="4px" LabelPaddingBottom="4px" LeftIconUrl="selected_tab_left_icon.gif"
+                            RightIconUrl="selected_tab_right_icon.gif" LeftIconWidth="3px" LeftIconHeight="21px"
+                            RightIconWidth="3px" RightIconHeight="21px" LeftIconVisibility="Always" RightIconVisibility="Always" />
+                    </ItemLooks>
+                    <Tabs>
+                        <ComponentArt:TabStripTab ID="TabStripTab_General" runat="server" ChildSelectedLook-LeftIconVisibility="Always"
+                            ChildSelectedLook-RightIconVisibility="Always" DefaultSubGroupTabSpacing="1px"
+                            DisabledLook-LeftIconVisibility="Always" DisabledLook-RightIconVisibility="Always"
+                            Look-LeftIconVisibility="Always" Look-RightIconVisibility="Always" SelectedLook-LeftIconVisibility="Always"
+                            SelectedLook-RightIconVisibility="Always" SubGroupTabSpacing="1px" Text="General">
+                        </ComponentArt:TabStripTab>
+                        <ComponentArt:TabStripTab ID="TabStripTab_CCMS" runat="server" ChildSelectedLook-LeftIconVisibility="Always"
+                            ChildSelectedLook-RightIconVisibility="Always" DefaultSubGroupTabSpacing="1px"
+                            DisabledLook-LeftIconVisibility="Always" DisabledLook-RightIconVisibility="Always"
+                            Look-LeftIconVisibility="Always" Look-RightIconVisibility="Always" SelectedLook-LeftIconVisibility="Always"
+                            SelectedLook-RightIconVisibility="Always" SubGroupTabSpacing="1px" Text="Currency And Cash Management System">
+                        </ComponentArt:TabStripTab>
+                        <ComponentArt:TabStripTab ID="TabStripTab_EJ" runat="server" ChildSelectedLook-LeftIconVisibility="Always"
+                            ChildSelectedLook-RightIconVisibility="Always" DefaultSubGroupTabSpacing="1px"
+                            DisabledLook-LeftIconVisibility="Always" DisabledLook-RightIconVisibility="Always"
+                            Look-LeftIconVisibility="Always" Look-RightIconVisibility="Always" SelectedLook-LeftIconVisibility="Always"
+                            SelectedLook-RightIconVisibility="Always" SubGroupTabSpacing="1px" Text="Electronic Journal">
+                        </ComponentArt:TabStripTab>
+                    </Tabs>
+                </ComponentArt:TabStrip>
+                <ComponentArt:MultiPage ID="MultiPage_Operations" CssClass="MultiPage" runat="server"
+                    Width="100%">
+                    <ComponentArt:PageView CssClass="PageContent" runat="server" ID="PageView_RecentActivity"
+                        Width="100%">
+                        <div class="DIVHomePage" id="DivCashOrderReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashOrderReport.aspx'">
+                                        Cash Order Report<br />
+                                        <img alt="" src="../images/Cash-Order.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DivOrderDownloadDFFReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='FTPFileMonitoringReport.aspx'">
+                                        Order Download and Daily Feed Status Report<br />
+                                        <img alt="" src="../images/Order-Download-and-Daily-UP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DivTaskStatusReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='TaskStatusReport.aspx'">
+                                        Task Status Report<br />
+                                        <img alt="" src="../images/Task-Status-Report.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DivTerminalDowntimeReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='TerminalDowntimeReport.aspx'">
+                                        Terminal Downtime Report<br />
+                                        <img alt="" src="../images/Terminal-Downtime-RPT-UP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVScheduleTrackingReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ScheduleTrackingReport.aspx'">
+                                        Schedule Tracking Report<br />
+                                        <img alt="" src="../images/Schedule-Tracking-Report.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIV_AlertMonitoring" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='AlertReport.aspx'">
+                                        Alert Monitoring Report<br />
+                                        <img alt="" src="../images/icon_alertDashboard.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVOutOfCash" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='newOutOfCash.aspx'">
+                                        Out Of Cash Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVATMSummary" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ATMSummaryReport.aspx'">
+                                        ATM Summary Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVDeadATMs" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='DeadATMRpt.aspx'">
+                                        Dead ATMs Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVLowBalance" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='LowBalanceRpt.aspx'">
+                                        Low Balance Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVPurgeBinAlerts" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PurgeBinAlertsReport.aspx'">
+                                        Purge Bin Alerts Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCallOut" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CallOutReport.aspx'">
+                                        Call Out Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCassetteFaultySummary" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CassetteFaultySummaryReport.aspx'">
+                                        Cassette Faulty Summary Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVReconcilation" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ReconciliationReport.aspx'">
+                                        Reconciliation Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVGLSummary" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='GLReport.aspx'">
+                                        GL Summary Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVInvoice" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='InvoiceDetailReport.aspx'">
+                                        Invoice Detail Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVInvoiceSummary" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='InvoiceSummaryReport.aspx'">
+                                        Invoice Summary Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DivPowerMonitoringReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PowerMonitoringReport.aspx'">
+                                        Power Monitoring Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="DIVHomePage" id="DivPowerNetworkDownReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PowerNetworkDownReport.aspx'">
+                                        Power Network Down Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ComponentArt:PageView>
+                    <ComponentArt:PageView CssClass="PageContent" runat="server" ID="PageView21">
+                        <div class="DIVHomePage" id="DIVReplenishment" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SuspiciousReplenishmentReport.aspx'">
+                                        Replenishment Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCurrentCashPositionsReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CurrentCashPositionsReport.aspx'">
+                                        Cash Positions Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCashUtilization" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashUtilizationReport.aspx'">
+                                        Cash Utilization Report<br />
+                                        <img alt="" src="../images/Cash-Utilization-Report.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVBNACounterReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='BNACounterReport.aspx'">
+                                        BNA Counter Report<br />
+                                        <img alt="" src="../images/BNA-Report.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCPMCounterReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CPMCounterReport.aspx'">
+                                        CPM Counter Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCashWithdrawalsReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashWithdrawalsReport.aspx'">
+                                        Cash Withdrawal Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVDenominationUtlization" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='DenominationUtilizationReport.aspx'">
+                                        Denomination Utilization Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVSwitchDispensing" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SwitchDispensingReport.aspx'">
+                                        Switch Dispensing Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVATMWithoutTrxn" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ATMWithoutTransaction24Hour.aspx'">
+                                        ATM Without Transaction 24 Hour<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCassetteDispensing" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CassetteDispensingReport.aspx'">
+                                        Cassette Dispensing Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVRepReturnedReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ReplenishmentReturnedReport.aspx'">
+                                        Replenishment Returned Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVRepExceptionReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ReplenishmentExceptionReport.aspx'">
+                                        Replenishment Exception Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVVaultReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='VaultReport.aspx'">
+                                        Vault Transaction Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVMissingSettlement" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SettlementReport.aspx?t=1'">
+                                        Missing Settlement Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVLateSettlement" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SettlementReport.aspx?t=2'">
+                                        Late Settlement Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVBankSettlementReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='BankSettlementReport.aspx'">
+                                        Bank Settlement Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                        
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCITCCMSCounterReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CITCCMSCounterReport.aspx'">
+                                        CIT Vs CCMS Counter Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                         &nbsp;
+                        <div class="DIVHomePage" id="DivReplenishmentRemainingNotesReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ReplenishmentRemainingNotesReport.aspx'">
+                                        Replenishment Remaining Notes Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                         &nbsp;
+                        <div class="DIVHomePage" id="DivMinNotesThresholdReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='MinNotesThresholdReport.aspx'">
+                                        Min Notes Threshold Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                        
+                       
+
+
+                    </ComponentArt:PageView>
+                    <ComponentArt:PageView CssClass="PageContent" runat="server" ID="PageView_LowBalance"
+                        Width="100%">
+                        <div class="DIVHomePage" id="DIVEjReplenishment" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SuspiciousReplenishmentReport.aspx?ej=1'">
+                                        EJ Replenishment Report<br />
+                                        <img alt="" src="../images/Replenishment-Report-uP.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEJCashUtilization" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashUtilizationReport.aspx?ej=1'">
+                                        EJ Cash Utilization Report<br />
+                                        <img alt="" src="../images/Cash-Utilization-Report.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEJCashWithdrawalsReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashWithdrawalsReport.aspx?ej=1'">
+                                        EJ Cash Withdrawal Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVFraudTrxn" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CashWithdrawalsReport.aspx?ej=2'">
+                                        Fraud Transactions Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEJSwitchDispensing" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='SwitchDispensingReport.aspx?ej=1'">
+                                        EJ Switch Dispensing Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEjATMWithoutTrxn" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ATMWithoutTransaction24Hour.aspx?ej=1'">
+                                        EJ ATM Without Transaction 24 Hour<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEjCassetteDispensing" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CassetteDispensingReport.aspx?ej=1'">
+                                        EJ Cassette Dispensing Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVMemberBankTransactionReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='MemberBankTransactionReport.aspx'">
+                                        Member Bank Transaction Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVCardCaptureReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='CardCapturedReport.aspx'">
+                                        Card Capture Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVEJRepReturnedReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ReplenishmentReturnedReport.aspx?ej=1'">
+                                        EJ Replenishment Returned Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVQNBBankSettlementReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='QNBBankSettlementReport.aspx'">
+                                        QNB Bank Settlement Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> 
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVPNCDepositSummary" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCDepositSummary.aspx'">
+                                        Deposit Summary<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVPNCIncidentAnalysis" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCIncidentAnalysis.aspx'">
+                                        PNC Incident Analysis<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                         &nbsp;
+                        <div class="DIVHomePage" id="DIVDepositWeeklyAnalysis" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCDepositWeeklyAnalysis.aspx'">
+                                        PNC Deposits Weekly Analysis<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVPNCDepositDetail" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCDepositDetail.aspx'">
+                                        Deposits Detail<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVMeanTimeToFailureAnalysis" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCMeanTimeToFailureAnalysis.aspx'">
+                                        PNC Mean Time To Failure Analysis<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        &nbsp;
+                        <div class="DIVHomePage" id="DIVMeanTimeToIncidenceFailureAnalysis" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='PNCMeanTimeToIncidentFailureAnalysis.aspx'">
+                                        PNC Mean Time To Incidence Failure Analysis<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                       <%--edited by shariq 0n 02sep2015--%>                        &nbsp;
+                        <div class="DIVHomePage" id="DivExceptionHandlingReport" runat="server">
+                            <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                                <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                                    width: 158px;">
+                                    <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='ExceptionHandlingReport.aspx'">
+                                       Exception Handling Report<br />
+                                        <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                       <%--//******--%>                        
+                    </ComponentArt:PageView>
+                </ComponentArt:MultiPage>
+            </div>
+        </div>
+        <%--<div id="menus" style="padding-left: 10px">
+            
+            
+            
+           
+           
+            
+     
+            <div class="DIVHomePage" id="DIVNoCashWithdrawals" runat="server">
+                <table cellpadding="0" class="DIVHomePage" cellspacing="0" border="0">
+                    <tr style="background-image: url(../images/welcomeButtonsBG.jpg); height: 100px;
+                        width: 158px;">
+                        <td style="width: 158px; cursor: pointer; height: 100px;" onclick="location.href='NoCashWithdrawalReport.aspx'">
+                            No Cash Withdrawal Report<br />
+                            <img alt="" src="../images/CPM-Counter.jpg" style="cursor: pointer" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            &nbsp;
+            
+            
+            
+           
+           
+           
+           
+            
+          
+           
+            
+            
+        </div>--%>
+    </div>
+    <%--<tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_CashOrder" runat="server" CssClass="Link" NavigateUrl="CashOrderReport.aspx"></asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_FTPFileMonitoring" runat="server" CssClass="Link" NavigateUrl="FTPFileMonitoringReport.aspx"></asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_TaskStatus" runat="server" CssClass="Link" NavigateUrl="TaskStatusReport.aspx"></asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_TerminalDowntime" runat="server" CssClass="Link" NavigateUrl="TerminalDowntimeReport.aspx">Terminal Downtime Report</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_ScheduleTracking" runat="server" CssClass="Link" NavigateUrl="ScheduleTrackingReport.aspx">Schedule Tracking Report</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_SuspiciousReplenishment" runat="server" CssClass="Link"
+                            NavigateUrl="SuspiciousReplenishmentReport.aspx">Replenishment Report</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_CashUtilization" runat="server" CssClass="Link" NavigateUrl="CashUtilizationReport.aspx">Cash Utilization Report</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_BNACounter" runat="server" CssClass="Link" NavigateUrl="BNACounterReport.aspx">BNA Counter Report</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;">
+                        <asp:HyperLink ID="HyperLink_CPMCounter" runat="server" CssClass="Link" NavigateUrl="CPMCounterReport.aspx">CPM Counter Report</asp:HyperLink>
+                    </td>
+                </tr>
+    --%>
+    <%--            </table>--%>
+    <%--</div>--%>
+    </form>
+</body>
+</html>
